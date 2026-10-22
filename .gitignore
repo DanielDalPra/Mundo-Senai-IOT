@@ -1,0 +1,11 @@
+node_modules/
+.env
+.env.*
+!.env.example
+data/
+firmware/include/config.h
+firmware/.pio/
+firmware/.vscode/
+*.log
+.DS_Store
+__pycache__/

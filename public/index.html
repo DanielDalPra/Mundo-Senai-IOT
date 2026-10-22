@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Estoque Inteligente | Mundo SENAI</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <span class="eyebrow">MUNDO SENAI · ESP32</span>
+        <h1>Estoque Inteligente</h1>
+      </div>
+      <div class="header-actions">
+        <span id="connection" class="status">Conectando…</span
+        ><a href="/demo.html" target="_blank" rel="noopener">Modelo manual ↗</a
+        ><button id="logout" class="subtle">Sair</button>
+      </div>
+    </header>
+    <main>
+      <section class="model-area">
+        <div class="model-title">
+          <span>ESTOQUE REGISTRADO</span
+          ><strong id="occupancy">0 / 6 vagas</strong>
+        </div>
+        <iframe
+          id="model"
+          src="/model/?live=1&embed=1"
+          title="Modelo 3D do estoque registrado"
+        ></iframe>
+        <div class="model-caption">
+          A posição é registrada pela operação RFID. Movimentos físicos fora da
+          estação precisam ser reconciliados.
+        </div>
+        <div class="sensors">
+          <div><span>Estação</span><strong id="presence">—</strong></div>
+          <div><span>Distância</span><strong id="distance">—</strong></div>
+          <div><span>Cor observada</span><strong id="color">—</strong></div>
+          <div><span>Wi-Fi</span><strong id="rssi">—</strong></div>
+        </div>
+      </section>
+      <aside>
+        <nav aria-label="Painel">
+          <button data-tab="operate" class="active">Operar</button
+          ><button data-tab="tags">Tags</button
+          ><button data-tab="history">Histórico</button>
+        </nav>
+        <section id="operate" class="tab">
+          <h2>Movimentar uma caixa</h2>
+          <p>
+            Prepare a operação. Espere aparecer no OLED e apresente a caixa na
+            estação.
+          </p>
+          <form id="operation-form">
+            <label>Caixa<select id="operation-box"></select></label
+            ><label
+              >Operação<select id="action">
+                <option value="entrada">Entrada no estoque</option>
+                <option value="saida">Saída do estoque</option>
+                <option value="mover">Mudar de vaga</option>
+              </select></label
+            ><label id="slot-label"
+              >Vaga de destino<select id="slot"></select></label
+            ><button class="primary" id="prepare">Preparar leitura RFID</button>
+          </form>
+          <div id="pending" class="notice" hidden>
+            <strong id="pending-title"></strong>
+            <p id="pending-detail"></p>
+            <button id="cancel">Cancelar operação</button>
+          </div>
+          <div id="operation-help" class="help">
+            Cadastre as seis tags na aba Tags para começar.
+          </div>
+          <h3>Caixas e vagas</h3>
+          <div id="inventory" class="inventory"></div>
+          <details>
+            <summary>Corrigir uma posição manualmente</summary>
+            <p>
+              Use quando alguém mover uma caixa sem passar pela estação. O
+              ajuste fica registrado no histórico.
+            </p>
+            <form id="reconcile-form">
+              <label>Caixa<select id="fix-box"></select></label
+              ><label
+                >Posição correta<select id="fix-slot">
+                  <option value="">Fora do estoque</option>
+                </select></label
+              ><label
+                >Motivo<input
+                  id="reason"
+                  minlength="5"
+                  maxlength="160"
+                  required
+                  placeholder="Ex.: caixa retirada sem leitura" /></label
+              ><button>Registrar correção</button>
+            </form>
+          </details>
+        </section>
+        <section id="tags" class="tab" hidden>
+          <h2>Cadastrar as etiquetas</h2>
+          <p>
+            Com o ESP32 conectado, apresente uma caixa por vez na estação. Copie
+            a última tag lida e vincule à caixa correspondente.
+          </p>
+          <div class="scan">
+            <span>ÚLTIMA TAG LIDA</span
+            ><strong id="last-uid">Nenhuma leitura</strong
+            ><small id="last-result">Aproxime a etiqueta do RC522.</small>
+          </div>
+          <form id="tag-form">
+            <label>Caixa<select id="tag-box"></select></label
+            ><label
+              >UID da etiqueta<input
+                id="tag-uid"
+                required
+                autocomplete="off"
+                maxlength="32"
+                placeholder="Ex.: 04 A1 B2 C3" /></label
+            ><button type="button" id="use-last">Usar última leitura</button
+            ><button class="primary">Vincular tag à caixa</button>
+          </form>
+          <p class="help">
+            O exemplo de UID não corresponde às suas tags. Cada caixa deve ter
+            uma tag diferente. Retire e reapresente a caixa entre leituras.
+          </p>
+          <div id="tag-list"></div>
+        </section>
+        <section id="history" class="tab" hidden>
+          <h2>Últimas operações</h2>
+          <p>
+            Entradas, saídas, leituras e correções, preservadas pelo servidor.
+          </p>
+          <ol id="events"></ol>
+        </section>
+        <div id="feedback" role="status" aria-live="polite"></div>
+      </aside>
+    </main>
+    <div id="login-layer" class="login-layer">
+      <form id="login-form" class="login">
+        <span class="eyebrow">MUNDO SENAI</span>
+        <h2>Abra o painel do estoque</h2>
+        <p>
+          Use o valor de <code>ADMIN_TOKEN</code> do arquivo
+          <code>.env</code> no computador do servidor.
+        </p>
+        <label
+          >Chave do painel<input
+            id="admin-key"
+            type="password"
+            autocomplete="current-password"
+            required /></label
+        ><button class="primary">Entrar</button>
+        <p id="login-error" role="alert"></p>
+      </form>
+    </div>
+    <script src="/dashboard.js"></script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "mundo-senai-iot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Estoque inteligente com ESP32, RFID e maquete 3D",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "start": "node --env-file=.env server/index.mjs",
+    "test": "node --test test/*.test.mjs",
+    "simulate": "node --env-file=.env scripts/simulate.mjs"
+  }
+}

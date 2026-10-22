@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Estoque Inteligente • Maquete 3D</title>
+    <style>
+      :root {
+        font-family:
+          Inter,
+          Segoe UI,
+          Arial,
+          sans-serif;
+        color: #17283d;
+        background: #f4f6f8;
+        font-synthesis: none;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+      }
+      button,
+      input {
+        font: inherit;
+      }
+      button {
+        cursor: pointer;
+      }
+      button:focus-visible,
+      input:focus-visible,
+      summary:focus-visible {
+        outline: 3px solid #2866d5;
+        outline-offset: 3px;
+      }
+      button:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+      header {
+        height: 86px;
+        padding: 0 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #fff;
+        border-bottom: 1px solid #dce2e9;
+        gap: 16px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .logo {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 46px;
+        background: #2457b8;
+        border-radius: 10px;
+        color: #ffe552;
+      }
+      .eyebrow {
+        text-transform: uppercase;
+        font-size: 10px;
+        letter-spacing: 2px;
+        font-weight: 700;
+        color: #657489;
+      }
+      h1 {
+        font-size: 22px;
+        margin: 5px 0 0;
+        letter-spacing: -0.7px;
+      }
+      .badge {
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        background: #f1f4f8;
+        padding: 9px 13px;
+        border-radius: 20px;
+        white-space: nowrap;
+      }
+      .badge i {
+        width: 7px;
+        height: 7px;
+        background: #50728c;
+        border-radius: 50%;
+      }
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 330px;
+        min-height: calc(100vh - 86px);
+      }
+      .stage {
+        position: relative;
+        height: calc(100vh - 86px);
+        min-height: 590px;
+        overflow: hidden;
+        background: radial-gradient(ellipse at 50% 40%, #fff 0%, #eaf0f5 80%);
+      }
+      #scene {
+        width: 100%;
+        height: 100%;
+        display: block;
+        touch-action: none;
+      }
+      .topbar {
+        position: absolute;
+        left: 24px;
+        right: 24px;
+        top: 22px;
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        gap: 12px;
+        pointer-events: none;
+      }
+      .toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        background: #ffffffed;
+        border: 1px solid #dce3ec;
+        padding: 4px;
+        border-radius: 10px;
+        gap: 3px;
+        pointer-events: auto;
+      }
+      .toolbar button {
+        border: 0;
+        background: transparent;
+        border-radius: 7px;
+        color: #53647a;
+        padding: 9px 12px;
+        font-size: 12px;
+      }
+      .toolbar button.active {
+        background: #e8effb;
+        color: #194d9d;
+        font-weight: 600;
+      }
+      .roof {
+        background: #ffffffed;
+        border: 1px solid #dce3ec;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        border-radius: 10px;
+        padding: 12px;
+        font-size: 12px;
+        pointer-events: auto;
+        white-space: nowrap;
+      }
+      .roof input {
+        accent-color: #285cbb;
+      }
+      .stage-note {
+        position: absolute;
+        left: 26px;
+        bottom: 26px;
+        color: #657489;
+        font-size: 12px;
+        line-height: 1.8;
+        max-width: 360px;
+        pointer-events: none;
+      }
+      .stage-note strong {
+        color: #344963;
+        font-size: 12px;
+      }
+      .stage-number {
+        position: absolute;
+        left: 27px;
+        top: 88px;
+        font-size: 10px;
+        letter-spacing: 2px;
+        color: #8996a6;
+        pointer-events: none;
+      }
+      #toast {
+        position: absolute;
+        bottom: 99px;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 90%;
+        width: max-content;
+        background: #172b45;
+        color: white;
+        padding: 12px 18px;
+        font-size: 13px;
+        border-radius: 10px;
+        box-shadow: 0 6px 26px #172b4522;
+        opacity: 0;
+        transition: opacity 0.2s;
+        pointer-events: none;
+      }
+      #toast.show {
+        opacity: 1;
+      }
+      .dropzone {
+        position: absolute;
+        left: 50%;
+        bottom: 85px;
+        transform: translateX(-50%);
+        padding: 18px 35px;
+        background: #e5edf9ed;
+        border: 2px dashed #3766b8;
+        border-radius: 12px;
+        font-size: 14px;
+        color: #244f92;
+        display: none;
+        pointer-events: none;
+      }
+      .dropzone.active {
+        display: block;
+      }
+      .dropzone.over {
+        background: #d6e9d7;
+        border-color: #498856;
+        color: #246032;
+      }
+      aside {
+        background: #fff;
+        border-left: 1px solid #dce2e9;
+        padding: 25px 24px;
+        overflow: auto;
+        height: calc(100vh - 86px);
+        min-height: 590px;
+      }
+      h2 {
+        font-size: 16px;
+        margin: 0 0 8px;
+        letter-spacing: -0.3px;
+      }
+      .sub {
+        font-size: 12px;
+        color: #6c7a8b;
+        line-height: 1.65;
+        margin: 0 0 18px;
+      }
+      .section {
+        padding: 20px 0;
+        border-bottom: 1px solid #edf0f4;
+      }
+      .section:first-child {
+        padding-top: 0;
+      }
+      .section:last-child {
+        border: 0;
+      }
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 14px;
+      }
+      .section-head h2 {
+        margin: 0;
+      }
+      .count {
+        font-size: 12px;
+        color: #56677e;
+      }
+      .slot-label {
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #7a8797;
+        margin: 12px 0 7px;
+      }
+      .slots {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 7px;
+      }
+      .slot {
+        background: #f4f6f9;
+        border: 1px solid #e0e6ee;
+        border-radius: 9px;
+        padding: 11px 4px 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        color: #66788b;
+        min-height: 70px;
+        font-size: 11px;
+      }
+      .slot[aria-pressed="true"] {
+        border: 2px solid #2b5db7;
+        padding: 10px 3px 7px;
+        background: #f0f5ff;
+      }
+      .slot strong {
+        color: #243a53;
+        font-size: 12px;
+      }
+      .swatch {
+        width: 25px;
+        height: 20px;
+        background: var(--box-color);
+        border-radius: 3px;
+        box-shadow: inset -4px -3px 0 #00000015;
+      }
+      .empty {
+        background: transparent;
+        border: 1px dashed #a9b6c5;
+        box-shadow: none;
+      }
+      .boxlist {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 7px;
+      }
+      .boxchoice {
+        border: 1px solid #dfe6ef;
+        border-radius: 8px;
+        background: #fff;
+        padding: 9px 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        font-size: 11px;
+        color: #3b5068;
+      }
+      .boxchoice[aria-pressed="true"] {
+        border-color: #2b5db7;
+        background: #edf3ff;
+        box-shadow: 0 0 0 1px #2b5db7;
+      }
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 3px;
+        background: var(--box-color);
+      }
+      .selected-line {
+        display: flex;
+        justify-content: space-between;
+        gap: 6px;
+        margin: 15px 0 13px;
+        font-size: 12px;
+        color: #596d82;
+      }
+      .selected-line strong {
+        color: #223a57;
+      }
+      .actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .btn {
+        border: 1px solid #d5deea;
+        border-radius: 8px;
+        background: white;
+        padding: 11px 8px;
+        color: #28405f;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .primary {
+        background: #2459b7;
+        border-color: #2459b7;
+        color: #fff;
+      }
+      .hint {
+        font-size: 11px;
+        color: #78879a;
+        line-height: 1.6;
+        margin: 12px 0 0;
+      }
+      .countbar {
+        height: 4px;
+        background: #e9eef4;
+        border-radius: 2px;
+        margin-top: 13px;
+        overflow: hidden;
+      }
+      .countbar div {
+        height: 100%;
+        background: #ebc83e;
+        transition: width 0.3s;
+      }
+      .footer-tools {
+        display: flex;
+        gap: 8px;
+        margin-top: 13px;
+      }
+      .footer-tools button {
+        flex: 1;
+      }
+      details {
+        font-size: 12px;
+        color: #62758b;
+        line-height: 1.65;
+        margin-top: 15px;
+      }
+      summary {
+        cursor: pointer;
+        color: #344d69;
+      }
+      details p {
+        margin: 9px 0;
+      }
+      .error {
+        position: absolute;
+        inset: 20%;
+        padding: 25px;
+        background: #fff;
+        border-radius: 12px;
+        color: #a02d35;
+        z-index: 100;
+      }
+      .hidden {
+        display: none;
+      }
+      #reset-prompt {
+        margin-top: 12px;
+        padding: 12px;
+        background: #f5f7fa;
+        border-radius: 8px;
+        font-size: 12px;
+        color: #4f627b;
+      }
+      #reset-prompt p {
+        margin: 0 0 10px;
+      }
+      .mobile-tip {
+        display: none;
+      }
+      noscript {
+        display: block;
+        padding: 30px;
+      }
+      @media (max-width: 1000px) {
+        header {
+          padding: 0 20px;
+        }
+        .layout {
+          grid-template-columns: minmax(0, 1fr) 295px;
+        }
+        aside {
+          padding: 22px 18px;
+        }
+        .topbar {
+          left: 16px;
+          right: 16px;
+          flex-wrap: wrap;
+        }
+        .toolbar button {
+          padding: 8px;
+          font-size: 11px;
+        }
+        .roof {
+          padding: 10px;
+        }
+        .stage-note {
+          max-width: 220px;
+        }
+      }
+      @media (max-width: 740px) {
+        header {
+          height: 76px;
+          padding: 0 16px;
+        }
+        .eyebrow {
+          font-size: 8px;
+          letter-spacing: 1.5px;
+        }
+        h1 {
+          font-size: 18px;
+        }
+        .badge {
+          font-size: 10px;
+          padding: 8px;
+        }
+        .logo {
+          width: 34px;
+          height: 38px;
+        }
+        .brand {
+          gap: 9px;
+        }
+        .layout {
+          display: block;
+        }
+        .stage {
+          height: 55vh;
+          min-height: 400px;
+        }
+        .stage-note {
+          left: 16px;
+          bottom: 16px;
+          font-size: 10px;
+          max-width: 280px;
+        }
+        .stage-note strong {
+          font-size: 11px;
+        }
+        .stage-number {
+          left: 19px;
+          top: 78px;
+        }
+        aside {
+          height: auto;
+          min-height: 0;
+          border-left: 0;
+          border-top: 1px solid #dce2e9;
+          padding: 20px;
+        }
+        .section {
+          padding: 18px 0;
+        }
+        .slot {
+          min-height: 62px;
+        }
+        .topbar {
+          top: 16px;
+        }
+        .roof {
+          font-size: 10px;
+        }
+        .toolbar button {
+          font-size: 10px;
+          padding: 8px;
+        }
+        .sub {
+          margin-bottom: 10px;
+        }
+        .dropzone {
+          bottom: 70px;
+          font-size: 12px;
+          padding: 12px 20px;
+        }
+        .mobile-tip {
+          display: inline;
+        }
+        .desktop-tip {
+          display: none;
+        }
+      }
+    </style>
+    <style>
+      body.embed header,
+      body.embed aside {
+        display: none;
+      }
+      body.embed .layout {
+        display: block;
+        min-height: 0;
+      }
+      body.embed .stage {
+        height: 100vh;
+        min-height: 320px;
+      }
+      body.embed .stage-number {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      if (new URLSearchParams(location.search).has("embed"))
+        document.body.classList.add("embed");
+    </script>
+    <header>
+      <div class="brand">
+        <div class="logo">
+          <svg
+            width="26"
+            height="28"
+            viewBox="0 0 26 28"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M3 8L13 2l10 6v12l-10 6L3 20V8Z"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+            <path
+              d="m3 8 10 6 10-6M13 14v12M8 5l10 6"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+          </svg>
+        </div>
+        <div>
+          <div class="eyebrow">Mundo SENAI · Maquete 3D</div>
+          <h1>Estoque Inteligente</h1>
+        </div>
+      </div>
+      <span class="badge"><i></i>Controle manual</span>
+    </header>
+    <main class="layout">
+      <section
+        class="stage"
+        aria-label="Visualização tridimensional da maquete"
+      >
+        <canvas
+          id="scene"
+          aria-label="Maquete 3D. Use o painel ao lado para selecionar, retirar e colocar caixas."
+        ></canvas>
+        <div class="topbar">
+          <div class="toolbar" aria-label="Posição da câmera">
+            <button id="view-perspective" class="active">Perspectiva</button
+            ><button id="view-front">Frente</button
+            ><button id="view-top">Superior</button>
+          </div>
+          <label class="roof"
+            ><input id="roof-toggle" type="checkbox" checked />Teto
+            visível</label
+          >
+        </div>
+        <div class="stage-number">MODELO 01 / DEPÓSITO</div>
+        <div class="stage-note">
+          <strong>Explore a maquete.</strong><br /><span class="desktop-tip"
+            >Arraste o fundo para girar · Role para aproximar.<br />Arraste uma
+            caixa para uma vaga ou para fora.</span
+          ><span class="mobile-tip"
+            >Deslize para girar · Use dois dedos para aproximar.<br />Toque nas
+            caixas e use os botões abaixo.</span
+          >
+        </div>
+        <div id="toast" role="status" aria-live="polite"></div>
+        <div id="dropzone" class="dropzone">
+          Solte aqui para retirar a caixa
+        </div>
+        <div id="error" class="error hidden" role="alert"></div>
+      </section>
+      <aside>
+        <section class="section">
+          <div class="section-head">
+            <h2>Prateleiras</h2>
+            <span class="count" id="count">6 de 6 ocupadas</span>
+          </div>
+          <p class="sub">Selecione uma caixa e a vaga onde deseja colocá-la.</p>
+          <div class="slot-label">Prateleira superior</div>
+          <div class="slots" id="upper-slots"></div>
+          <div class="slot-label">Prateleira inferior</div>
+          <div class="slots" id="lower-slots"></div>
+          <div class="countbar"><div id="fill" style="width: 100%"></div></div>
+        </section>
+        <section class="section">
+          <h2>Caixas</h2>
+          <p class="sub">
+            As caixas retiradas ficam na área à frente do depósito.
+          </p>
+          <div class="boxlist" id="boxes"></div>
+          <div class="selected-line">
+            <strong id="selected-name">CX-01 · Azul</strong
+            ><span id="selected-location">Vaga A1</span>
+          </div>
+          <div class="actions">
+            <button class="btn" id="remove">↓ Retirar</button
+            ><button class="btn primary" id="place">↑ Colocar em A1</button>
+          </div>
+          <p class="hint" id="action-hint">
+            Retire a caixa selecionada para liberar esta vaga.
+          </p>
+        </section>
+        <section class="section">
+          <h2>Seu modelo</h2>
+          <p class="sub">Posições salvas automaticamente neste navegador.</p>
+          <div class="footer-tools">
+            <button class="btn" id="export">Baixar modelo 3D</button
+            ><button class="btn" id="reset">Restaurar caixas</button>
+          </div>
+          <div id="reset-prompt" class="hidden">
+            <p>Voltar à disposição das fotos, com as seis caixas na estante?</p>
+            <div class="actions">
+              <button id="reset-yes" class="btn primary">Restaurar</button
+              ><button id="reset-no" class="btn">Cancelar</button>
+            </div>
+          </div>
+          <details>
+            <summary>Sobre esta versão</summary>
+            <p>
+              Estrutura recriada a partir das fotos e do vídeo: depósito azul,
+              estante amarela com dois níveis, seis caixas e sensores na
+              fachada.
+            </p>
+            <p>
+              As proporções são aproximadas. As medidas reais não foram
+              fornecidas. As vagas A1–B3 e os códigos CX-01–06 organizam o
+              modelo virtual.
+            </p>
+            <p>
+              Os sensores são representações visuais. A conexão com o ESP32 e a
+              identificação das caixas reais ficam para uma próxima etapa.
+            </p>
+            <p>
+              O download GLB contém a geometria e objetos separados. Os
+              controles de retirar e colocar funcionam neste arquivo HTML.
+            </p>
+          </details>
+        </section>
+      </aside>
+    </main>
+    <noscript
+      >Ative o JavaScript no navegador para abrir a maquete 3D.</noscript
+    >
+    <script src="/vendor/three.min.js"></script>
+    <script src="/vendor/OrbitControls.js"></script>
+    <script src="/vendor/GLTFExporter.js"></script>
+    <script src="model.js"></script>
+  </body>
+</html>
