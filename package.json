@@ -11,6 +11,10 @@
     "setup": "node scripts/setup.mjs",
     "start": "node --env-file=.env server/index.mjs",
     "test": "node --test test/*.test.mjs",
-    "simulate": "node --env-file=.env scripts/simulate.mjs"
+    "simulate": "node --env-file=.env scripts/simulate.mjs",
+    "usb": "python scripts/usb-bridge.py",
+    "test:firmware": "node scripts/test-firmware.mjs",
+    "test:bridge": "python -m unittest discover -s test -p usb_bridge_test.py -v",
+    "validate": "npm test && npm run test:bridge && npm run test:firmware"
   }
 }

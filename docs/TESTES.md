@@ -1,5 +1,24 @@
 # Validação e teste de bancada
 
+## Atualização — 01/11/2026
+
+Validação ampliada: **44 testes/casos aprovados**, incluindo execução das funções
+do firmware C++ original no PC e três fluxos completos até o servidor real isolado.
+Foi corrigido o descarte de linhas USB longas. Método, comandos e limitações em
+[VALIDACAO-FIRMWARE.md](VALIDACAO-FIRMWARE.md).
+
+O firmware original ganhou transporte USB para a mesma API autenticada.
+Foi compilado e gravado no ESP32 físico da COM14. A ponte e o servidor real
+confirmaram `deviceOnline: true` e `servidor=ok` na serial. Os 17 testes passaram,
+incluindo a nova integração Python/HTTP com entrada, reenvio deduplicado e saída.
+
+A placa física reportou `rfidOk: false` e ausência de eco no ultrassônico.
+O usuário informou dois cabos ausentes no leitor RFID. Não considerar sensores
+ou montagem física aprovados. Detalhes e execução em [USB.md](USB.md).
+
+As seções seguintes registram a validação da entrega anterior, antes desse teste
+na placa física.
+
 ## Executado nesta entrega
 
 ### Servidor: 16 testes automatizados aprovados

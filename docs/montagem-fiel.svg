@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1580" viewBox="0 0 1920 1580">
+<style>text{font-family:Arial,sans-serif} .mono{font-family:Consolas,monospace}</style>
+<rect x="0" y="0" width="1920" height="1580" rx="0" fill="#f3f2eb" stroke="none"/>
+<rect x="0" y="0" width="1920" height="16" rx="0" fill="#176c61" stroke="none"/>
+<text x="60" y="75" font-size="21" fill="#176c61" font-weight="700" text-anchor="start">MUNDO SENAI  /  ESTOQUE INTELIGENTE</text>
+<text x="60" y="139" font-size="48" fill="#18313c" font-weight="700" text-anchor="start">Monte por pino. Confira por módulo.</text>
+<text x="60" y="182" font-size="24" fill="#18313c" font-weight="400" text-anchor="start">ESP32 DevKit clássico • Pinagem do firmware deste repositório • USB desligado durante a montagem</text>
+<text x="60" y="219" font-size="21" fill="#536c76" font-weight="400" text-anchor="start">Mapa lógico: os terminais repetidos são o mesmo GPIO. A posição física muda entre versões da DevKit.</text>
+<rect x="650" y="260" width="620" height="810" rx="22" fill="#203e48" stroke="none"/>
+<text x="960" y="309" font-size="40" fill="#ffffff" font-weight="700" text-anchor="middle">ESP32</text>
+<text x="960" y="341" font-size="22" fill="#c0d7d7" font-weight="400" text-anchor="middle">WROOM / DevKit clássico</text>
+<rect x="865" y="385" width="190" height="254" rx="10" fill="#cbd0c6" stroke="none"/>
+<rect x="880" y="400" width="160" height="62" rx="6" fill="#a5ada8" stroke="none"/>
+<polyline points="894,411 894,451" fill="none" stroke="#6f7c75" stroke-width="5" stroke-linejoin="round"/>
+<polyline points="917,411 917,451" fill="none" stroke="#6f7c75" stroke-width="5" stroke-linejoin="round"/>
+<polyline points="940,411 940,451" fill="none" stroke="#6f7c75" stroke-width="5" stroke-linejoin="round"/>
+<polyline points="963,411 963,451" fill="none" stroke="#6f7c75" stroke-width="5" stroke-linejoin="round"/>
+<polyline points="986,411 986,451" fill="none" stroke="#6f7c75" stroke-width="5" stroke-linejoin="round"/>
+<polyline points="1009,411 1009,451" fill="none" stroke="#6f7c75" stroke-width="5" stroke-linejoin="round"/>
+<text x="960" y="518" font-size="25" fill="#324e54" font-weight="700" text-anchor="middle">ESP32</text>
+<text x="960" y="550" font-size="18" fill="#324e54" font-weight="400" text-anchor="middle">Wi-Fi + USB</text>
+<text x="960" y="588" font-size="18" fill="#324e54" font-weight="700" text-anchor="middle">3,3 V nos GPIOs</text>
+<rect x="909" y="963" width="102" height="69" rx="7" fill="#b8c2bf" stroke="none"/>
+<rect x="926" y="981" width="68" height="31" rx="4" fill="#314c54" stroke="none"/>
+<text x="960" y="1052" font-size="18" fill="#dbe8e5" font-weight="400" text-anchor="middle">USB → computador</text>
+<text x="960" y="711" font-size="20" fill="#ffffff" font-weight="700" text-anchor="middle">GPIO18 + GPIO23</text>
+<text x="960" y="741" font-size="18" fill="#c0d7d7" font-weight="400" text-anchor="middle">compartilhados no SPI</text>
+<text x="960" y="801" font-size="20" fill="#ffffff" font-weight="700" text-anchor="middle">3V3 e GND</text>
+<text x="960" y="831" font-size="17" fill="#c0d7d7" font-weight="400" text-anchor="middle">podem usar os barramentos</text>
+<text x="960" y="858" font-size="17" fill="#c0d7d7" font-weight="400" text-anchor="middle">da protoboard</text>
+<rect x="60" y="260" width="430" height="404" rx="16" fill="#ffffff" stroke="#d7dfd9"/>
+<rect x="60" y="260" width="8" height="404" rx="3" fill="#287b98" stroke="none"/>
+<text x="85" y="301" font-size="27" fill="#18313c" font-weight="700" text-anchor="start">01  RC522 · RFID</text>
+<text x="85" y="333" font-size="18" fill="#536c76" font-weight="400" text-anchor="start">Alimentação 3,3 V • SPI</text>
+<text x="85" y="378" font-size="20" fill="#18313c" font-weight="400" text-anchor="start">3.3V</text>
+<polyline points="490,371 650,371" fill="none" stroke="#c54c36" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="490" cy="371" r="5" fill="#c54c36"/>
+<circle cx="650" cy="371" r="5" fill="#c54c36"/>
+<text x="666" y="378" font-size="18" fill="#ffffff" font-weight="700" text-anchor="start">3V3</text>
+<text x="85" y="414" font-size="20" fill="#18313c" font-weight="400" text-anchor="start">GND</text>
+<polyline points="490,407 650,407" fill="none" stroke="#43535a" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="490" cy="407" r="5" fill="#43535a"/>
+<circle cx="650" cy="407" r="5" fill="#43535a"/>
+<text x="666" y="414" font-size="18" fill="#ffffff" font-weight="700" text-anchor="start">GND</text>
+<text x="85" y="450" font-size="20" fill="#18313c" font-weight="400" text-anchor="start">SDA / SS</text>
+<polyline points="490,443 650,443" fill="none" stroke="#6e58a0" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="490" cy="443" r="5" fill="#6e58a0"/>
+<circle cx="650" cy="443" r="5" fill="#6e58a0"/>
+<text x="666" y="450" font-size="18" fill="#ffffff" font-weight="700" text-anchor="start">GPIO21</text>
+<text x="85" y="486" font-size="20" fill="#18313c" font-weight="400" text-anchor="start">SCK</text>
+<polyline points="490,479 650,479" fill="none" stroke="#287b98" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="490" cy="479" r="5" fill="#287b98"/>
+<circle cx="650" cy="479" r="5" fill="#287b98"/>
+<text x="666" y="486" font-size="18" fill="#ffffff" font-weight="700" text-anchor="start">GPIO18</text>
+<text x="85" y="522" font-size="20" fill="#18313c" font-weight="400" text-anchor="start">MOSI</text>
+<polyline points="490,515 650,515" fill="none" stroke="#287b98" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="490" cy="515" r="5" fill="#287b98"/>
+<circle cx="650" cy="515" r="5" fill="#287b98"/>
+<text x="666" y="522" font-size="18" fill="#ffffff" font-weight="700" text-anchor="start">GPIO23</text>
+<text x="85" y="558" font-size="20" fill="#18313c" font-weight="400" text-anchor="start">MISO</text>
+<polyline points="490,551 650,551" fill="none" stroke="#287b98" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="490" cy="551" r="5" fill="#287b98"/>
+<circle cx="650" cy="551" r="5" fill="#287b98"/>
+<text x="666" y="558" font-size="18" fill="#ffffff" font-weight="700" text-anchor="start">GPIO19</text>
+<text x="85" y="594" font-size="20" fill="#18313c" font-weight="400" text-anchor="start">RST</text>
+<polyline points="490,587 650,587" fill="none" stroke="#6e58a0" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="490" cy="587" r="5" fill="#6e58a0"/>
+<circle cx="650" cy="587" r="5" fill="#6e58a0"/>
+<text x="666" y="594" font-size="18" fill="#ffffff" font-weight="700" text-anchor="start">GPIO22</text>
+<text x="85" y="646" font-size="18" fill="#536c76" font-weight="400" text-anchor="start">IRQ: deixe sem conexão.</text>
+<rect x="60" y="700" width="430" height="370" rx="16" fill="#ffffff" stroke="#d7dfd9"/>
+<rect x="60" y="700" width="8" height="370" rx="3" fill="#287b98" stroke="none"/>
+<text x="85" y="741" font-size="27" fill="#18313c" font-weight="700" text-anchor="start">02  OLED SPI · 6 pinos</text>
+<text x="85" y="773" font-size="18" fill="#536c76" font-weight="400" text-anchor="start">Não usar pinagem de display I²C</text>
+<text x="85" y="818" font-size="20" fill="#18313c" font-weight="400" text-anchor="start">VCC</text>
+<polyline points="490,811 650,811" fill="none" stroke="#c54c36" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="490" cy="811" r="5" fill="#c54c36"/>
+<circle cx="650" cy="811" r="5" fill="#c54c36"/>
+<text x="666" y="818" font-size="18" fill="#ffffff" font-weight="700" text-anchor="start">3V3</text>
+<text x="85" y="854" font-size="20" fill="#18313c" font-weight="400" text-anchor="start">GND</text>
+<polyline points="490,847 650,847" fill="none" stroke="#43535a" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="490" cy="847" r="5" fill="#43535a"/>
+<circle cx="650" cy="847" r="5" fill="#43535a"/>
+<text x="666" y="854" font-size="18" fill="#ffffff" font-weight="700" text-anchor="start">GND</text>
+<text x="85" y="890" font-size="20" fill="#18313c" font-weight="400" text-anchor="start">CLK / D0</text>
+<polyline points="490,883 650,883" fill="none" stroke="#287b98" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="490" cy="883" r="5" fill="#287b98"/>
+<circle cx="650" cy="883" r="5" fill="#287b98"/>
+<text x="666" y="890" font-size="18" fill="#ffffff" font-weight="700" text-anchor="start">GPIO18</text>
+<text x="85" y="926" font-size="20" fill="#18313c" font-weight="400" text-anchor="start">MOSI / D1</text>
+<polyline points="490,919 650,919" fill="none" stroke="#287b98" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="490" cy="919" r="5" fill="#287b98"/>
+<circle cx="650" cy="919" r="5" fill="#287b98"/>
+<text x="666" y="926" font-size="18" fill="#ffffff" font-weight="700" text-anchor="start">GPIO23</text>
+<text x="85" y="962" font-size="20" fill="#18313c" font-weight="400" text-anchor="start">CS</text>
+<polyline points="490,955 650,955" fill="none" stroke="#6e58a0" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="490" cy="955" r="5" fill="#6e58a0"/>
+<circle cx="650" cy="955" r="5" fill="#6e58a0"/>
+<text x="666" y="962" font-size="18" fill="#ffffff" font-weight="700" text-anchor="start">GPIO16</text>
+<text x="85" y="998" font-size="20" fill="#18313c" font-weight="400" text-anchor="start">D/C / DC</text>
+<polyline points="490,991 650,991" fill="none" stroke="#6e58a0" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="490" cy="991" r="5" fill="#6e58a0"/>
+<circle cx="650" cy="991" r="5" fill="#6e58a0"/>
+<text x="666" y="998" font-size="18" fill="#ffffff" font-weight="700" text-anchor="start">GPIO27</text>
+<text x="85" y="1046" font-size="18" fill="#536c76" font-weight="400" text-anchor="start">Sem RESET exposto: firmware usa −1.</text>
+<rect x="1430" y="260" width="430" height="440" rx="16" fill="#ffffff" stroke="#d7dfd9"/>
+<rect x="1430" y="260" width="8" height="440" rx="3" fill="#6e58a0" stroke="none"/>
+<text x="1455" y="301" font-size="27" fill="#18313c" font-weight="700" text-anchor="start">03  TCS3200 · Cor</text>
+<text x="1455" y="333" font-size="18" fill="#536c76" font-weight="400" text-anchor="start">Módulo com terminal LED</text>
+<text x="1835" y="378" font-size="20" fill="#18313c" font-weight="400" text-anchor="end">VCC</text>
+<polyline points="1270,371 1430,371" fill="none" stroke="#c54c36" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1430" cy="371" r="5" fill="#c54c36"/>
+<circle cx="1270" cy="371" r="5" fill="#c54c36"/>
+<text x="1254" y="378" font-size="18" fill="#ffffff" font-weight="700" text-anchor="end">3V3</text>
+<text x="1835" y="414" font-size="20" fill="#18313c" font-weight="400" text-anchor="end">GND</text>
+<polyline points="1270,407 1430,407" fill="none" stroke="#43535a" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1430" cy="407" r="5" fill="#43535a"/>
+<circle cx="1270" cy="407" r="5" fill="#43535a"/>
+<text x="1254" y="414" font-size="18" fill="#ffffff" font-weight="700" text-anchor="end">GND</text>
+<text x="1835" y="450" font-size="20" fill="#18313c" font-weight="400" text-anchor="end">S0</text>
+<polyline points="1270,443 1430,443" fill="none" stroke="#6e58a0" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1430" cy="443" r="5" fill="#6e58a0"/>
+<circle cx="1270" cy="443" r="5" fill="#6e58a0"/>
+<text x="1254" y="450" font-size="18" fill="#ffffff" font-weight="700" text-anchor="end">GPIO32</text>
+<text x="1835" y="486" font-size="20" fill="#18313c" font-weight="400" text-anchor="end">S1</text>
+<polyline points="1270,479 1430,479" fill="none" stroke="#6e58a0" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1430" cy="479" r="5" fill="#6e58a0"/>
+<circle cx="1270" cy="479" r="5" fill="#6e58a0"/>
+<text x="1254" y="486" font-size="18" fill="#ffffff" font-weight="700" text-anchor="end">GPIO33</text>
+<text x="1835" y="522" font-size="20" fill="#18313c" font-weight="400" text-anchor="end">S2</text>
+<polyline points="1270,515 1430,515" fill="none" stroke="#6e58a0" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1430" cy="515" r="5" fill="#6e58a0"/>
+<circle cx="1270" cy="515" r="5" fill="#6e58a0"/>
+<text x="1254" y="522" font-size="18" fill="#ffffff" font-weight="700" text-anchor="end">GPIO13</text>
+<text x="1835" y="558" font-size="20" fill="#18313c" font-weight="400" text-anchor="end">S3</text>
+<polyline points="1270,551 1430,551" fill="none" stroke="#6e58a0" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1430" cy="551" r="5" fill="#6e58a0"/>
+<circle cx="1270" cy="551" r="5" fill="#6e58a0"/>
+<text x="1254" y="558" font-size="18" fill="#ffffff" font-weight="700" text-anchor="end">GPIO14</text>
+<text x="1835" y="594" font-size="20" fill="#18313c" font-weight="400" text-anchor="end">OUT</text>
+<polyline points="1270,587 1430,587" fill="none" stroke="#6e58a0" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1430" cy="587" r="5" fill="#6e58a0"/>
+<circle cx="1270" cy="587" r="5" fill="#6e58a0"/>
+<text x="1254" y="594" font-size="18" fill="#ffffff" font-weight="700" text-anchor="end">GPIO34</text>
+<text x="1835" y="630" font-size="20" fill="#18313c" font-weight="400" text-anchor="end">LED*</text>
+<polyline points="1270,623 1430,623" fill="none" stroke="#c54c36" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1430" cy="623" r="5" fill="#c54c36"/>
+<circle cx="1270" cy="623" r="5" fill="#c54c36"/>
+<text x="1254" y="630" font-size="18" fill="#ffffff" font-weight="700" text-anchor="end">3V3</text>
+<text x="1455" y="679" font-size="17" fill="#536c76" font-weight="400" text-anchor="start">* Confirmar função LED no módulo real.</text>
+<rect x="1430" y="750" width="430" height="320" rx="16" fill="#ffffff" stroke="#d7dfd9"/>
+<rect x="1430" y="750" width="8" height="320" rx="3" fill="#b16c19" stroke="none"/>
+<text x="1455" y="791" font-size="27" fill="#18313c" font-weight="700" text-anchor="start">04  HC-SR04 · Presença</text>
+<text x="1455" y="823" font-size="18" fill="#536c76" font-weight="400" text-anchor="start">Sensor ultrassônico de quatro pinos</text>
+<text x="1835" y="868" font-size="20" fill="#18313c" font-weight="400" text-anchor="end">VCC</text>
+<polyline points="1270,861 1430,861" fill="none" stroke="#c54c36" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1430" cy="861" r="5" fill="#c54c36"/>
+<circle cx="1270" cy="861" r="5" fill="#c54c36"/>
+<text x="1254" y="868" font-size="18" fill="#ffffff" font-weight="700" text-anchor="end">5 V USB / VIN*</text>
+<text x="1835" y="904" font-size="20" fill="#18313c" font-weight="400" text-anchor="end">GND</text>
+<polyline points="1270,897 1430,897" fill="none" stroke="#43535a" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1430" cy="897" r="5" fill="#43535a"/>
+<circle cx="1270" cy="897" r="5" fill="#43535a"/>
+<text x="1254" y="904" font-size="18" fill="#ffffff" font-weight="700" text-anchor="end">GND</text>
+<text x="1835" y="940" font-size="20" fill="#18313c" font-weight="400" text-anchor="end">TRIG</text>
+<polyline points="1270,933 1430,933" fill="none" stroke="#6e58a0" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1430" cy="933" r="5" fill="#6e58a0"/>
+<circle cx="1270" cy="933" r="5" fill="#6e58a0"/>
+<text x="1254" y="940" font-size="18" fill="#ffffff" font-weight="700" text-anchor="end">GPIO25</text>
+<text x="1835" y="976" font-size="20" fill="#18313c" font-weight="400" text-anchor="end">ECHO → divisor abaixo</text>
+<polyline points="1270,969 1430,969" fill="none" stroke="#b16c19" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1430" cy="969" r="5" fill="#b16c19"/>
+<circle cx="1270" cy="969" r="5" fill="#b16c19"/>
+<text x="1254" y="976" font-size="18" fill="#ffffff" font-weight="700" text-anchor="end">GPIO26 via divisor</text>
+<text x="1455" y="1046" font-size="17" fill="#536c76" font-weight="400" text-anchor="start">* Confirmar 5 V da DevKit com USB.</text>
+<rect x="60" y="1100" width="1800" height="245" rx="16" fill="#fff7e6" stroke="#e7c98e"/>
+<text x="85" y="1141" font-size="25" fill="#805014" font-weight="700" text-anchor="start">DIVISOR DO ECHO  /  NÃO LIGAR ECHO DIRETO AO ESP32</text>
+<text x="85" y="1174" font-size="21" fill="#805014" font-weight="400" text-anchor="start">A saída do HC-SR04 é de 5 V. Os dois resistores abaixo reduzem o sinal para aproximadamente 3,0 V.</text>
+<text x="85" y="1248" font-size="23" fill="#18313c" font-weight="700" text-anchor="start">ECHO</text>
+<polyline points="175,1240 285,1240" fill="none" stroke="#b16c19" stroke-width="4" stroke-linejoin="round"/>
+<rect x="285" y="1223" width="160" height="34" rx="3" fill="#ffffff" stroke="#b16c19"/>
+<text x="365" y="1210" font-size="21" fill="#18313c" font-weight="400" text-anchor="middle">R1 · 2,2 kΩ</text>
+<polyline points="445,1240 680,1240 1020,1240" fill="none" stroke="#b16c19" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="680" cy="1240" r="5" fill="#b16c19"/>
+<text x="1040" y="1248" font-size="23" fill="#18313c" font-weight="700" text-anchor="start">GPIO26</text>
+<polyline points="680,1240 680,1300 790,1300" fill="none" stroke="#b16c19" stroke-width="4" stroke-linejoin="round"/>
+<rect x="790" y="1283" width="160" height="34" rx="3" fill="#ffffff" stroke="#b16c19"/>
+<text x="870" y="1273" font-size="21" fill="#18313c" font-weight="400" text-anchor="middle">R2 · 3,3 kΩ</text>
+<polyline points="950,1300 1020,1300" fill="none" stroke="#43535a" stroke-width="4" stroke-linejoin="round"/>
+<text x="1040" y="1308" font-size="23" fill="#18313c" font-weight="700" text-anchor="start">GND</text>
+<text x="1260" y="1244" font-size="21" fill="#805014" font-weight="400" text-anchor="start">A junção dos resistores vai ao GPIO26.</text>
+<text x="1260" y="1280" font-size="21" fill="#805014" font-weight="400" text-anchor="start">5 × 3,3 / (2,2 + 3,3) ≈ 3,0 V</text>
+<text x="60" y="1394" font-size="22" fill="#176c61" font-weight="700" text-anchor="start">ANTES DE LIGAR</text>
+<text x="60" y="1433" font-size="21" fill="#18313c" font-weight="400" text-anchor="start">1  USB fora enquanto liga os fios.</text>
+<text x="60" y="1470" font-size="21" fill="#18313c" font-weight="400" text-anchor="start">2  GND comum a todos os módulos.</text>
+<text x="680" y="1433" font-size="21" fill="#18313c" font-weight="400" text-anchor="start">3  RC522, OLED e cor em 3V3.</text>
+<text x="680" y="1470" font-size="21" fill="#18313c" font-weight="400" text-anchor="start">4  Siga os nomes dos pinos da placa.</text>
+<text x="1300" y="1433" font-size="21" fill="#18313c" font-weight="400" text-anchor="start">5  HC-SR04 com divisor no ECHO.</text>
+<text x="1300" y="1470" font-size="21" fill="#18313c" font-weight="400" text-anchor="start">6  SPI curto; CS separados.</text>
+<text x="60" y="1538" font-size="18" fill="#536c76" font-weight="400" text-anchor="start">Fonte: firmware/include/pins.h + docs/MONTAGEM.md • OLED assumido SSD1306 128×64 • Não é validação elétrica da montagem real.</text>
+</svg>

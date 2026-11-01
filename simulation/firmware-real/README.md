@@ -1,0 +1,1 @@
+Esta pasta preserva a exportação do firmware original para o Wokwi. O corpo de sketch.ino vem de firmware/src/main.cpp, com ESTOQUE_SIMULATION e configuração de USB. A comunicação da placa física com o servidor foi testada; esta exportação ainda não foi executada no Wokwi. A demonstração autônoma anterior permanece em simulation/wokwi.

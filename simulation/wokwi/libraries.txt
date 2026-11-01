@@ -1,0 +1,5 @@
+MFRC522@1.4.12
+Adafruit SSD1306@2.5.13
+Adafruit GFX Library@1.11.11
+Adafruit BusIO@1.17.0
+ArduinoJson@6.21.5

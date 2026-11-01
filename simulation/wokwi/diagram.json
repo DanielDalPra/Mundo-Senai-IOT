@@ -1,0 +1,399 @@
+{
+  "version": 1,
+  "author": "Mundo SENAI",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-breadboard-half",
+      "id": "bb",
+      "left": 220,
+      "top": 120,
+      "attrs": {}
+    },
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "left": 390,
+      "top": 360,
+      "attrs": {}
+    },
+    {
+      "type": "board-mfrc522",
+      "id": "rfid",
+      "left": 10,
+      "top": 100,
+      "attrs": {
+        "uid": "01:02:03:04"
+      }
+    },
+    {
+      "type": "chip-oled-spi",
+      "id": "oled",
+      "left": 650,
+      "top": 90,
+      "attrs": {}
+    },
+    {
+      "type": "chip-tcs3200",
+      "id": "cor",
+      "left": 650,
+      "top": 310,
+      "attrs": {
+        "color": "0"
+      }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "us",
+      "left": 35,
+      "top": 400,
+      "attrs": {
+        "distance": "3"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "title",
+      "left": 0,
+      "top": -70,
+      "attrs": {
+        "text": "MUNDO SENAI | ESTOQUE INTELIGENTE",
+        "fontSize": "25",
+        "color": "#146f63"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "sub",
+      "left": 0,
+      "top": -25,
+      "attrs": {
+        "text": "ESP32 + RFID + ultrassonico + cor + OLED SPI",
+        "fontSize": "16"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "rfidLabel",
+      "left": 0,
+      "top": 60,
+      "attrs": {
+        "text": "1. RFID: Blue / Green / Yellow / Red / NFC / Key Fob",
+        "fontSize": "14"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "oledLabel",
+      "left": 640,
+      "top": 40,
+      "attrs": {
+        "text": "OLED SPI 128x64 (modelo customizado)",
+        "fontSize": "14"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "corLabel",
+      "left": 640,
+      "top": 260,
+      "attrs": {
+        "text": "TCS3200: clique para mudar a cor virtual",
+        "fontSize": "14"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "echoLabel",
+      "left": 0,
+      "top": 510,
+      "attrs": {
+        "text": "Divisor ECHO: R1 2,2k + R2 3,3k | modelo digital; tensao nao simulada",
+        "fontSize": "14",
+        "color": "#996200"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "help",
+      "left": 0,
+      "top": 650,
+      "attrs": {
+        "text": "USO: HC-SR04 em 3cm; RC522 -> Blue Card -> TAP\nSerial: entrada 1 A1 / mover 1 B2 / saida 1\nEntre leituras: sensor em 10cm por 1s, depois 3cm.\nOLED, cor e divisor: modelos digitais; sem servidor real.",
+        "fontSize": "16"
+      }
+    },
+    {
+      "type": "chip-echo-divider",
+      "id": "echoModel",
+      "left": 30,
+      "top": 540,
+      "hide": false,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [
+      "esp:TX",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp:RX",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "rfid:3.3V",
+      "bb:tp.5",
+      "red",
+      [
+        "h20"
+      ]
+    ],
+    [
+      "rfid:GND",
+      "bb:tn.5",
+      "black",
+      [
+        "h20"
+      ]
+    ],
+    [
+      "rfid:SDA",
+      "esp:21",
+      "purple",
+      [
+        "h20"
+      ]
+    ],
+    [
+      "rfid:SCK",
+      "esp:18",
+      "blue",
+      [
+        "h20"
+      ]
+    ],
+    [
+      "rfid:MOSI",
+      "esp:23",
+      "green",
+      [
+        "h20"
+      ]
+    ],
+    [
+      "rfid:MISO",
+      "esp:19",
+      "orange",
+      [
+        "h20"
+      ]
+    ],
+    [
+      "rfid:RST",
+      "esp:22",
+      "violet",
+      [
+        "h20"
+      ]
+    ],
+    [
+      "oled:VCC",
+      "bb:tp.10",
+      "red",
+      [
+        "h-20"
+      ]
+    ],
+    [
+      "oled:GND",
+      "bb:tn.10",
+      "black",
+      [
+        "h-20"
+      ]
+    ],
+    [
+      "oled:CLK",
+      "esp:18",
+      "blue",
+      [
+        "h-20"
+      ]
+    ],
+    [
+      "oled:MOSI",
+      "esp:23",
+      "green",
+      [
+        "h-20"
+      ]
+    ],
+    [
+      "oled:CS",
+      "esp:16",
+      "purple",
+      [
+        "h-20"
+      ]
+    ],
+    [
+      "oled:DC",
+      "esp:27",
+      "orange",
+      [
+        "h-20"
+      ]
+    ],
+    [
+      "cor:VCC",
+      "bb:tp.15",
+      "red",
+      [
+        "h-30"
+      ]
+    ],
+    [
+      "cor:GND",
+      "bb:tn.15",
+      "black",
+      [
+        "h-30"
+      ]
+    ],
+    [
+      "cor:S0",
+      "esp:32",
+      "purple",
+      [
+        "h-30"
+      ]
+    ],
+    [
+      "cor:S1",
+      "esp:33",
+      "purple",
+      [
+        "h-30"
+      ]
+    ],
+    [
+      "cor:S2",
+      "esp:13",
+      "violet",
+      [
+        "h-30"
+      ]
+    ],
+    [
+      "cor:S3",
+      "esp:14",
+      "violet",
+      [
+        "h-30"
+      ]
+    ],
+    [
+      "cor:OUT",
+      "esp:34",
+      "green",
+      [
+        "h-30"
+      ]
+    ],
+    [
+      "cor:LED",
+      "bb:tp.20",
+      "red",
+      [
+        "h-30"
+      ]
+    ],
+    [
+      "us:VCC",
+      "bb:bp.10",
+      "red",
+      [
+        "v30"
+      ]
+    ],
+    [
+      "us:GND",
+      "bb:tn.20",
+      "black",
+      [
+        "v45"
+      ]
+    ],
+    [
+      "us:TRIG",
+      "esp:25",
+      "purple",
+      [
+        "v20"
+      ]
+    ],
+    [
+      "esp:3V3",
+      "bb:tp.1",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "bb:tn.1",
+      "black",
+      []
+    ],
+    [
+      "esp:5V",
+      "bb:bp.1",
+      "red",
+      []
+    ],
+    [
+      "bb:tn.1",
+      "bb:bn.1",
+      "black",
+      []
+    ],
+    [
+      "us:ECHO",
+      "bb:25t.a",
+      "orange",
+      []
+    ],
+    [
+      "bb:27t.d",
+      "esp:26",
+      "orange",
+      []
+    ],
+    [
+      "echoModel:IN",
+      "bb:25t.e",
+      "orange",
+      []
+    ],
+    [
+      "echoModel:OUT",
+      "bb:27t.e",
+      "orange",
+      []
+    ],
+    [
+      "echoModel:GND",
+      "bb:tn.25",
+      "black",
+      []
+    ]
+  ],
+  "serialMonitor": {
+    "display": "always",
+    "newline": "lf"
+  }
+}

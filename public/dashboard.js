@@ -92,7 +92,10 @@ function updateOperation() {
     invalid = true;
   } else if (!drawConnection()) {
     reason =
-      "Ligue o ESP32 e confira Wi-Fi, endereço do servidor e DEVICE_TOKEN.";
+      "Ligue o ESP32 e confira a ponte USB ou a configuração do Wi-Fi.";
+    invalid = true;
+  } else if (state.device?.telemetry.rfidOk === false) {
+    reason = "RFID sem resposta. Confira as ligações do RC522 antes de cadastrar tags ou operar.";
     invalid = true;
   } else if (!b.uid) {
     reason = "Cadastre a tag desta caixa na aba Tags.";
@@ -141,7 +144,7 @@ function render(next) {
   $("distance").textContent =
     online && t.distanceCm !== null ? t.distanceCm.toFixed(1) + " cm" : "—";
   $("color").textContent = online ? t.color : "—";
-  $("rssi").textContent = online ? t.rssi + " dBm" : "—";
+  $("rssi").textContent = online ? t.transport === "usb" ? "USB" : t.rssi + " dBm" : "—";
   $("inventory").replaceChildren();
   $("tag-list").replaceChildren();
   for (const b of state.boxes) {

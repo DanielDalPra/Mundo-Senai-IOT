@@ -1,0 +1,1 @@
+{"name":"TCS3200 · modelo funcional","author":"Mundo SENAI","pins":["VCC","GND","S0","S1","S2","S3","OUT","LED"],"controls":[{"id":"color","label":"Cor: 0 azul / 1 verde / 2 vermelho / 3 amarelo / 4 neutro","type":"range","min":0,"max":4,"step":1}]}

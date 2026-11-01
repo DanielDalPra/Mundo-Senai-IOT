@@ -1,0 +1,1 @@
+{"name":"OLED SSD1306 SPI · 128x64","author":"Mundo SENAI","pins":["VCC","GND","CLK","MOSI","CS","DC"],"display":{"width":128,"height":64}}

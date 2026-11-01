@@ -1,0 +1,81 @@
+
+> mundo-senai-iot@1.0.0 validate
+> npm test && npm run test:bridge && npm run test:firmware
+
+
+> mundo-senai-iot@1.0.0 test
+> node --test test/*.test.mjs
+
+✔ autenticação separa painel/dispositivo e login cria cookie HttpOnly (97.37ms)
+✔ API rejeita origem cruzada e JSON inválido (28.1613ms)
+✔ servidor entrega o 3D e protege arquivos fora de public (30.6876ms)
+✔ SSE publica o estado e API completa um movimento (33.178ms)
+✔ inicia vazio, sem inferir presença física das fotografias (6.2184ms)
+✔ cadastro valida UID, normaliza e impede duplicação (4.5239ms)
+✔ tag não cadastrada é observada, sem mover caixa (3.9797ms)
+✔ entrada, mudança de vaga e saída exigem tag da caixa esperada (9.6179ms)
+✔ vaga ocupada, caixa já presente e operação concorrente são rejeitadas (6.257ms)
+✔ reenvio de evento após perda de resposta não duplica movimento (6.0365ms)
+✔ operação expirada, cancelada ou antiga não movimenta (8.5353ms)
+✔ UID conhecido sem operação e leitura sem presença não alteram estoque (4.3776ms)
+✔ cor não identifica caixa e amarelo é aceito como telemetria (3.706ms)
+✔ persistência sobrevive reinício e invalida comando pendente (6.8972ms)
+✔ correção é auditada e não aceita vaga duplicada (2.673ms)
+✔ payload inválido não altera arquivo de estado (2.4541ms)
+✔ ponte USB usa API real: telemetria, comando, entrada, reenvio e saída (469.7778ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 649.539
+
+> mundo-senai-iot@1.0.0 test:bridge
+> python -m unittest discover -s test -p usb_bridge_test.py -v
+
+test_authenticated_payload_and_correlation (usb_bridge_test.BridgeTests.test_authenticated_payload_and_correlation) ... ok
+test_diagnostic_is_ignored (usb_bridge_test.BridgeTests.test_diagnostic_is_ignored) ... ok
+test_http_auth_failure_has_no_ack (usb_bridge_test.BridgeTests.test_http_auth_failure_has_no_ack) ... ok
+test_invalid_json_response_has_no_ack (usb_bridge_test.BridgeTests.test_invalid_json_response_has_no_ack) ... ok
+test_invalid_request_ids_rejected (usb_bridge_test.BridgeTests.test_invalid_request_ids_rejected) ... ok
+test_invalid_server_time_has_no_ack (usb_bridge_test.BridgeTests.test_invalid_server_time_has_no_ack) ... ok
+test_malformed_report_rejected (usb_bridge_test.BridgeTests.test_malformed_report_rejected) ... ok
+test_network_failure_has_no_ack (usb_bridge_test.BridgeTests.test_network_failure_has_no_ack) ... ok
+test_oversized_report_is_ignored (usb_bridge_test.BridgeTests.test_oversized_report_is_ignored) ... ok
+test_oversized_response_has_no_ack (usb_bridge_test.BridgeTests.test_oversized_response_has_no_ack) ... ok
+test_rejected_response_has_no_ack (usb_bridge_test.BridgeTests.test_rejected_response_has_no_ack) ... ok
+test_timeout_has_no_ack (usb_bridge_test.BridgeTests.test_timeout_has_no_ack) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.003s
+
+OK
+
+> mundo-senai-iot@1.0.0 test:firmware
+> node scripts/test-firmware.mjs
+
+PASS presence
+PASS colors
+PASS rfid
+PASS expired-command
+PASS reader-health
+PASS ack
+PASS timeout
+PASS wrong-request
+PASS oversized-reply
+PASS boot-recovery
+PASS command-clock
+✔ firmware C++ original + ponte Python + API: entrada, vaga, tag errada e saída (338.6278ms)
+✔ firmware original: perda do ACK, reenvio e reinício não duplicam movimento (227.9031ms)
+✔ firmware original: comando cancelado ou expirado não movimenta caixa (251.0417ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 976.437
+PASS wifi

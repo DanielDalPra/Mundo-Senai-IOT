@@ -6,6 +6,8 @@
 // Mesmo DEVICE_TOKEN do .env; nunca use ADMIN_TOKEN aqui.
 #define DEVICE_TOKEN "COPIE_DEVICE_TOKEN_DO_ENV"
 #define DEVICE_ID "esp32-maquete-01"
+// 1 = relatorios via USB com `npm run usb`; 0 = HTTP pela rede Wi-Fi.
+#define TRANSPORT_SERIAL 1
 
 // Estação de leitura: ajuste após testar o posicionamento real.
 #define PRESENCE_ENTER_CM 4.0f

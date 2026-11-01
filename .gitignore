@@ -5,7 +5,9 @@ node_modules/
 data/
 firmware/include/config.h
 firmware/.pio/
+simulation/wokwi/.pio/
 firmware/.vscode/
 *.log
 .DS_Store
 __pycache__/
+test/firmware-host/.build/

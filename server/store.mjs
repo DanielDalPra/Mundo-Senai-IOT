@@ -248,6 +248,7 @@ export class Store {
           distanceCm: t.distanceCm,
           color: t.color,
           rssi: t.rssi,
+          transport: t.transport === "usb" ? "usb" : "wifi",
           pulses,
           rfidOk: t.rfidOk === true,
           oledOk: t.oledOk === true,

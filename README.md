@@ -1,5 +1,19 @@
 # Estoque Inteligente · Mundo SENAI
 
+## Conexão por USB — caminho recomendado no computador
+
+O firmware original também opera pela USB, sem depender do hotspot. Com
+`TRANSPORT_SERIAL 1` (padrão do exemplo), iniciar o servidor com `npm start` e,
+em outro terminal, executar `npm run usb`. A ponte autentica na mesma API e
+preserva os comandos, o progresso das movimentações e o painel conectado.
+Veja [USB.md](docs/USB.md) para configuração e validação na placa real.
+Para usar as instruções de Wi-Fi abaixo, definir `TRANSPORT_SERIAL 0` e gravar.
+
+Validação ampliada: **44 testes/casos aprovados**, incluindo o firmware original
+executado no PC, ponte USB e servidor real isolado. Executar `npm run validate`
+após preparar as dependências; método e limites em
+[VALIDACAO-FIRMWARE.md](docs/VALIDACAO-FIRMWARE.md).
+
 ESP32 + RFID + servidor local + maquete 3D. As tags dentro das seis caixas identificam os itens; o painel registra entrada, saída e mudança de vaga.
 
 ![Maquete 3D](assets/previa.png)
@@ -99,6 +113,9 @@ data/         estado criado localmente (ignorado no Git)
 
 ## Estado da entrega
 
-A validação de software está descrita em [TESTES.md](docs/TESTES.md). Não houve gravação nem teste na placa física do grupo. Calibração, pinagem da placa específica e funcionamento dos módulos precisam ser conferidos na bancada.
+A validação de software está descrita em [TESTES.md](docs/TESTES.md). Em 01/11/2026,
+o firmware foi gravado no ESP32 físico e a comunicação USB com o servidor foi
+confirmada. O RFID real não respondeu e o ultrassônico retornou ausência de eco;
+os módulos e a montagem ainda precisam de conferência na bancada. Veja [USB.md](docs/USB.md).
 
 O servidor foi pensado para uma rede local confiável durante o projeto. O protocolo padrão é HTTP; não exponha a porta diretamente à internet. `.env`, `config.h` e `data/` não são enviados ao Git. Faça backup de `data/state.json` com o servidor parado. Bibliotecas 3D mantêm sua licença em `public/vendor/LICENSE-THREE.txt`.
