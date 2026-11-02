@@ -9,10 +9,12 @@ preserva os comandos, o progresso das movimentações e o painel conectado.
 Veja [USB.md](docs/USB.md) para configuração e validação na placa real.
 Para usar as instruções de Wi-Fi abaixo, definir `TRANSPORT_SERIAL 0` e gravar.
 
-Validação ampliada: **44 testes/casos aprovados**, incluindo o firmware original
+Validação ampliada: **45 testes/casos aprovados**, incluindo o firmware original
 executado no PC, ponte USB e servidor real isolado. Executar `npm run validate`
 após preparar as dependências; método e limites em
 [VALIDACAO-FIRMWARE.md](docs/VALIDACAO-FIRMWARE.md).
+O teste separado do sensor de cor e a calibração de branco estão em
+[TESTE-COR.md](docs/TESTE-COR.md).
 
 ESP32 + RFID + servidor local + maquete 3D. As tags dentro das seis caixas identificam os itens; o painel registra entrada, saída e mudança de vaga.
 

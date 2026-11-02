@@ -23,6 +23,9 @@
 #ifndef SERIAL_REPLY_TIMEOUT_MS
 #define SERIAL_REPLY_TIMEOUT_MS 4000
 #endif
+#ifndef COLOR_TEST_MODE
+#define COLOR_TEST_MODE 0
+#endif
 
 Adafruit_SSD1306 display(128,64,&SPI,OLED_DC,OLED_RESET_PIN,OLED_CS,4000000UL);
 MFRC522 reader(RFID_CS,RFID_RST);
@@ -45,10 +48,10 @@ void message(const String &text){feedback=text;feedbackUntil=millis()+5000;Seria
 float measureDistance(){digitalWrite(US_TRIG,LOW);delayMicroseconds(2);digitalWrite(US_TRIG,HIGH);delayMicroseconds(10);digitalWrite(US_TRIG,LOW);const unsigned long duration=pulseIn(US_ECHO,HIGH,26000);return duration?duration*0.0343f/2.0f:-1.0f;}
 unsigned long colorPulse(bool s2,bool s3){digitalWrite(COLOR_S2,s2);digitalWrite(COLOR_S3,s3);delayMicroseconds(500);pulseIn(COLOR_OUT,LOW,20000);return pulseIn(COLOR_OUT,LOW,20000);}
 void readColor(){
- if(!COLOR_ENABLED||!present){color="indefinida";pulseR=pulseG=pulseB=0;return;}
+ if(!COLOR_ENABLED||(!present&&!COLOR_TEST_MODE)){color="indefinida";pulseR=pulseG=pulseB=0;return;}
  pulseR=colorPulse(LOW,LOW);pulseG=colorPulse(HIGH,HIGH);pulseB=colorPulse(LOW,HIGH);
  // pulseIn retorna duração em microssegundos, não frequência. Zero é timeout.
- if(!pulseR||!pulseG||!pulseB){color="indefinida";return;}
+ if(!pulseR||!pulseG||!pulseB){color="indefinida";Serial.printf("Cor sem sinal | pulsos R=%lu G=%lu B=%lu us\n",pulseR,pulseG,pulseB);return;}
  const float r=COLOR_GAIN_R/pulseR,g=COLOR_GAIN_G/pulseG,b=COLOR_GAIN_B/pulseB;
  if(r>b*1.4f&&g>b*1.4f&&min(r,g)/max(r,g)>.65f)color="amarelo";
  else if(r>g*1.2f&&r>b*1.2f)color="vermelho";
@@ -63,7 +66,7 @@ void readPresence(){distanceCm=measureDistance();if(distanceCm>0&&distanceCm<PRE
 }
 String newEventId(){char buffer[40];snprintf(buffer,sizeof(buffer),"%08lx%08lx-%08lx",(unsigned long)esp_random(),(unsigned long)esp_random(),(unsigned long)millis());return String(buffer);}
 void scanTag(){
- if(!rfidOk||!present||scannedThisVisit||pendingScan.length())return;
+ if(COLOR_TEST_MODE||!rfidOk||!present||scannedThisVisit||pendingScan.length())return;
  digitalWrite(OLED_CS,HIGH);
  if(!reader.PICC_IsNewCardPresent()||!reader.PICC_ReadCardSerial())return;
  String uid="";for(byte i=0;i<reader.uid.size;i++){if(reader.uid.uidByte[i]<16)uid+="0";uid+=String(reader.uid.uidByte[i],HEX);}uid.toUpperCase();
@@ -133,6 +136,7 @@ void report(){
  http.end();
 }
 void drawDisplay(){if(!oledOk)return;digitalWrite(RFID_CS,HIGH);display.clearDisplay();display.setTextSize(1);display.setTextColor(SSD1306_WHITE);display.setCursor(0,0);display.println("ESTOQUE INTELIGENTE");display.drawFastHLine(0,10,128,SSD1306_WHITE);display.setCursor(0,14);
+ if(COLOR_TEST_MODE){display.println("TESTE SENSOR DE COR");display.println(color);display.print("R: ");display.println(pulseR);display.print("G: ");display.println(pulseG);display.print("B: ");display.println(pulseB);display.display();return;}
  if(TRANSPORT_SERIAL)display.println(lastServerOk?"USB: servidor conectado":"USB: execute npm run usb");
  else display.println(WiFi.status()!=WL_CONNECTED?"WiFi desconectado":lastServerOk?"Servidor conectado":"Servidor indisponivel");
  if((int32_t)(feedbackUntil-millis())>0)display.println(feedback);
@@ -146,12 +150,13 @@ void setup(){
  Serial.begin(115200);pinMode(OLED_CS,OUTPUT);pinMode(RFID_CS,OUTPUT);digitalWrite(OLED_CS,HIGH);digitalWrite(RFID_CS,HIGH);
  SPI.begin(SPI_SCK,SPI_MISO,SPI_MOSI);
  if(OLED_ENABLED)oledOk=display.begin(SSD1306_SWITCHCAPVCC,0,true,false);
- initReader();pinMode(US_TRIG,OUTPUT);pinMode(US_ECHO,INPUT);digitalWrite(US_TRIG,LOW);
+ if(!COLOR_TEST_MODE)initReader();
+ pinMode(US_TRIG,OUTPUT);pinMode(US_ECHO,INPUT);digitalWrite(US_TRIG,LOW);
  for(int pin:{COLOR_S0,COLOR_S1,COLOR_S2,COLOR_S3})pinMode(pin,OUTPUT);
  pinMode(COLOR_OUT,INPUT);
  digitalWrite(COLOR_S0,HIGH);digitalWrite(COLOR_S1,LOW); // escala 20%
  preferences.begin("estoque",false);pendingScan=preferences.getString("pending","");
- if(!TRANSPORT_SERIAL){WiFi.mode(WIFI_STA);WiFi.setAutoReconnect(true);WiFi.persistent(false);WiFi.begin(WIFI_SSID,WIFI_PASSWORD);lastWifi=millis();}
+ if(!COLOR_TEST_MODE&&!TRANSPORT_SERIAL){WiFi.mode(WIFI_STA);WiFi.setAutoReconnect(true);WiFi.persistent(false);WiFi.begin(WIFI_SSID,WIFI_PASSWORD);lastWifi=millis();}
  message("Pronto. Veja o painel");
 }
 void loop(){const uint32_t now=millis();
@@ -161,12 +166,12 @@ void loop(){const uint32_t now=millis();
   Serial.printf("DIAG wifi=%d ip=%s sinal=%d servidor=%s distancia=%.1f presenca=%s rfid=%s oled_init=%s cor=%s\n",
    (int)WiFi.status(),WiFi.localIP().toString().c_str(),WiFi.RSSI(),lastServerOk?"ok":"falha",distanceCm,present?"sim":"nao",rfidOk?"responde":"falha",oledOk?"ok":"falha",color.c_str());
  }
- if(now-lastDistance>=200){lastDistance=now;readPresence();}
+ if(!COLOR_TEST_MODE&&now-lastDistance>=200){lastDistance=now;readPresence();}
  if(now-lastColor>=1000){lastColor=now;readColor();}
  if(now-lastRFID>=150){lastRFID=now;scanTag();}
- if(now-lastReport>=2000){lastReport=now;report();}
+ if(!COLOR_TEST_MODE&&now-lastReport>=2000){lastReport=now;report();}
  if(now-lastDisplay>=300){lastDisplay=now;drawDisplay();}
- if(!TRANSPORT_SERIAL&&WiFi.status()!=WL_CONNECTED&&now-lastWifi>=10000){lastWifi=now;WiFi.reconnect();}
- if(!rfidOk&&now-lastInit>=10000){lastInit=now;initReader();}
+ if(!COLOR_TEST_MODE&&!TRANSPORT_SERIAL&&WiFi.status()!=WL_CONNECTED&&now-lastWifi>=10000){lastWifi=now;WiFi.reconnect();}
+ if(!COLOR_TEST_MODE&&!rfidOk&&now-lastInit>=10000){lastInit=now;initReader();}
  delay(2);
 }

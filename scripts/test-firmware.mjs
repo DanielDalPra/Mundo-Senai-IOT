@@ -19,4 +19,9 @@ const wifi=join(output,process.platform==='win32'?'firmware-wifi.exe':'firmware-
 const compileWifi=spawnSync(process.env.CXX||'g++',['-std=c++11','-Wall','-Wextra','-DHOST_WIFI','-Itest/firmware-host/stubs','-Ifirmware/include','-Ifirmware/.pio/libdeps/esp32dev/ArduinoJson/src','test/firmware-host/main.cpp','-o',wifi],{cwd:root,stdio:'inherit'});
 if(compileWifi.status!==0)process.exit(compileWifi.status||1);
 const wifiTest=spawnSync(wifi,['wifi'],{cwd:root,stdio:'inherit'});
-process.exit(wifiTest.status===0?0:(wifiTest.status||1));
+if(wifiTest.status!==0)process.exit(wifiTest.status||1);
+const bench=join(output,process.platform==='win32'?'firmware-color.exe':'firmware-color');
+const compileBench=spawnSync(process.env.CXX||'g++',['-std=c++11','-Wall','-Wextra','-DCOLOR_TEST_MODE=1','-Itest/firmware-host/stubs','-Ifirmware/include','-Ifirmware/.pio/libdeps/esp32dev/ArduinoJson/src','test/firmware-host/main.cpp','-o',bench],{cwd:root,stdio:'inherit'});
+if(compileBench.status!==0)process.exit(compileBench.status||1);
+const benchTest=spawnSync(bench,['color-bench'],{cwd:root,stdio:'inherit'});
+process.exit(benchTest.status===0?0:(benchTest.status||1));

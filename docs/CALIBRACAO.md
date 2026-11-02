@@ -23,6 +23,11 @@ UIDs são cadastrados na aba Tags. O servidor aceita 4, 7 ou 10 bytes, com letra
 
 ## Sensor de cor
 
+O exemplo atual inclui os ganhos medidos na montagem em 02/11/2026:
+R=1, G=1 e B=0,777778. Eles equilibram o branco dessa montagem, sem garantir
+outra iluminação ou posicionamento. Para testar sem ultrassônico, seguir
+[TESTE-COR.md](TESTE-COR.md).
+
 O sinal OUT do TCS3200 é uma onda de frequência relacionada à intensidade luminosa. `pulseIn(LOW)` mede a **duração do pulso em microssegundos**. Pulso mais curto implica frequência maior. O código original chamou essas durações de frequência; o novo código mantém os valores como pulsos para evitar confusão.
 
 O firmware usa a escala de 20%: S0 alto, S1 baixo. Filtros: vermelho LOW/LOW, verde HIGH/HIGH, azul LOW/HIGH. Timeout em qualquer canal produz `indefinida`.

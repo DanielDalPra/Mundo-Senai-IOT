@@ -8,7 +8,12 @@ void reply(const String &body,uint32_t id=1){serialWaiting=true;serialRequestId=
 void pending(){pendingScan="{\"eventId\":\"native-test-0001\",\"uid\":\"01020304\",\"commandId\":null}";preferences.putString("pending",pendingScan);}
 const String ack="{\"ok\":true,\"serverTime\":1000000,\"command\":null,\"result\":{\"accepted\":true,\"code\":\"applied\",\"message\":\"OK\"}}";
 void unit(const std::string &name){
- if(name=="presence"){
+ if(name=="color-bench"){
+  require(COLOR_TEST_MODE,"Bench test must use separate build");present=false;pulses={260,260,240,240,60,60};readColor();require(color=="azul","Bench must read colors without presence");
+  present=rfidOk=reader.card=true;scanTag();require(pendingScan.empty(),"Bench must not register movements");
+  present=false;clockMs=3000;pulses={240,240,60,60,250,250};Serial.output="";loop();
+  require(color=="verde"&&Serial.output.find("APRENDE_REPORT ")==std::string::npos,"Bench loop must read color without sending stock reports");
+ }else if(name=="presence"){
   distance(3);require(!present,"One near sample must not detect a box");distance(3);require(present,"Two near samples must detect a box");
   scannedThisVisit=true;distance(5);require(present&&scannedThisVisit,"Dead band must retain visit");
   distance(10);distance(10);require(present,"Two far samples must retain presence");distance(10);require(!present&&!scannedThisVisit,"Three far samples must end the visit");
@@ -16,7 +21,7 @@ void unit(const std::string &name){
  }else if(name=="colors"){
   present=true;
   struct C{unsigned long r,g,b;const char* color;};
-  for(auto c:{C{260,240,60,"azul"},C{240,60,250,"verde"},C{60,240,250,"vermelho"},C{60,65,250,"amarelo"},C{100,100,100,"indefinida"},C{0,100,60,"indefinida"}}){
+  for(auto c:{C{260,240,60,"azul"},C{240,60,250,"verde"},C{60,240,250,"vermelho"},C{60,65,250,"amarelo"},C{100,100,100,"indefinida"},C{108,108,84,"indefinida"},C{674,544,305,"azul"},C{0,100,60,"indefinida"}}){
    pulses={c.r,c.r,c.g,c.g,c.b,c.b};readColor();require(color==c.color,c.color);
   }
   present=false;readColor();require(color=="indefinida"&&!pulseR&&!pulseG&&!pulseB,"No color without presence");

@@ -1,5 +1,13 @@
 # Validação e teste de bancada
 
+## Atualização — 02/11/2026
+
+`npm run validate` aprovou **45 testes/casos**, incluindo o novo `color-bench`:
+leitura de cor sem ultrassônico, sem leitura RFID e sem relatórios ao estoque.
+O modo de bancada foi gravado no ESP32, o OLED foi confirmado pelo operador e
+foram capturados pulsos reais do TCS3200. A referência de branco, os ganhos
+aplicados e os limites da validação estão em [TESTE-COR.md](TESTE-COR.md).
+
 ## Atualização — 01/11/2026
 
 Validação ampliada: **44 testes/casos aprovados**, incluindo execução das funções

@@ -16,7 +16,9 @@
 #define OLED_RESET_PIN -1
 #define OLED_ENABLED true
 #define COLOR_ENABLED true
-// Ganhos da calibração branca: comece com 1.0; veja docs/CALIBRACAO.md.
+// Branco medido nesta montagem em 02/11/2026: R=108 G=108 B=84 us.
+// Ganhos normalizados; recalibrar ao mudar sensor, distância ou iluminação.
+// Veja docs/TESTE-COR.md e docs/CALIBRACAO.md.
 #define COLOR_GAIN_R 1.0f
 #define COLOR_GAIN_G 1.0f
-#define COLOR_GAIN_B 1.0f
+#define COLOR_GAIN_B 0.777778f
