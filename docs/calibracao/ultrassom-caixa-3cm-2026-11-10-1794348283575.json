@@ -1,0 +1,174 @@
+{
+  "reference": "operador confirmou face plana de caixa a cerca de 3cm",
+  "date": "2026-11-10",
+  "samples": [
+    {
+      "at": 1794348263982,
+      "present": true,
+      "distanceCm": 0.5,
+      "color": "indefinida",
+      "colorCalibrated": true,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348266005,
+      "present": true,
+      "distanceCm": 0.200000003,
+      "color": "indefinida",
+      "colorCalibrated": true,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348267994,
+      "present": true,
+      "distanceCm": 3.5,
+      "color": "indefinida",
+      "colorCalibrated": true,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348269998,
+      "present": true,
+      "distanceCm": 4.800000191,
+      "color": "indefinida",
+      "colorCalibrated": true,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348272008,
+      "present": true,
+      "distanceCm": 5.099999905,
+      "color": "indefinida",
+      "colorCalibrated": true,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348273998,
+      "present": true,
+      "distanceCm": 3.099999905,
+      "color": "indefinida",
+      "colorCalibrated": true,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348276012,
+      "present": true,
+      "distanceCm": 5,
+      "color": "indefinida",
+      "colorCalibrated": true,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348278004,
+      "present": true,
+      "distanceCm": 0.5,
+      "color": "indefinida",
+      "colorCalibrated": true,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348280006,
+      "present": true,
+      "distanceCm": 3.400000095,
+      "color": "indefinida",
+      "colorCalibrated": true,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348282006,
+      "present": true,
+      "distanceCm": 0.5,
+      "color": "indefinida",
+      "colorCalibrated": true,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    }
+  ],
+  "summary": {
+    "samples": 10,
+    "min": 0.200000003,
+    "median": 3.400000095,
+    "max": 5.099999905,
+    "below2cm": 4,
+    "presenceCount": 10
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "expected": "azul",
+  "white_reference_medians": {
+    "r": 2440,
+    "g": 2793,
+    "b": 2369
+  },
+  "samples": [
+    {
+      "r": 5532,
+      "g": 3933,
+      "b": 2309,
+      "classified_with_white_gains": "azul"
+    },
+    {
+      "r": 5433,
+      "g": 3724,
+      "b": 2223,
+      "classified_with_white_gains": "azul"
+    },
+    {
+      "r": 5481,
+      "g": 4006,
+      "b": 2224,
+      "classified_with_white_gains": "azul"
+    },
+    {
+      "r": 5769,
+      "g": 3984,
+      "b": 2303,
+      "classified_with_white_gains": "azul"
+    },
+    {
+      "r": 5310,
+      "g": 4043,
+      "b": 2331,
+      "classified_with_white_gains": "azul"
+    },
+    {
+      "r": 5406,
+      "g": 4071,
+      "b": 2130,
+      "classified_with_white_gains": "azul"
+    },
+    {
+      "r": 5487,
+      "g": 4158,
+      "b": 2373,
+      "classified_with_white_gains": "azul"
+    },
+    {
+      "r": 5605,
+      "g": 3731,
+      "b": 2300,
+      "classified_with_white_gains": "azul"
+    },
+    {
+      "r": 5425,
+      "g": 3893,
+      "b": 2444,
+      "classified_with_white_gains": "azul"
+    },
+    {
+      "r": 5389,
+      "g": 3932,
+      "b": 2169,
+      "classified_with_white_gains": "azul"
+    },
+    {
+      "r": 5441,
+      "g": 3846,
+      "b": 2264,
+      "classified_with_white_gains": "azul"
+    },
+    {
+      "r": 5266,
+      "g": 4062,
+      "b": 2201,
+      "classified_with_white_gains": "azul"
+    },
+    {
+      "r": 5449,
+      "g": 4089,
+      "b": 2265,
+      "classified_with_white_gains": "azul"
+    }
+  ],
+  "summary": {
+    "r": {
+      "median": 5441,
+      "min": 5266,
+      "max": 5769,
+      "cv": 0.02233353314960023
+    },
+    "g": {
+      "median": 3984,
+      "min": 3724,
+      "max": 4158,
+      "cv": 0.032501511701397603
+    },
+    "b": {
+      "median": 2265,
+      "min": 2130,
+      "max": 2444,
+      "cv": 0.0360088765894035
+    }
+  },
+  "classifications_with_proposed_gains": {
+    "azul": 13
+  }
+}

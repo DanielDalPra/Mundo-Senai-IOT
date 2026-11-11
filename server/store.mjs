@@ -27,7 +27,7 @@ function initial() {
   return {
     version: 1,
     revision: 0,
-    boxes: ["azul", "verde", "azul", "amarelo", "azul", "verde"].map(
+    boxes: ["azul", "amarelo", "verde", "azul", "verde", "verde"].map(
       (color, i) => ({ id: `CX-0${i + 1}`, color, uid: null, slot: null }),
     ),
     command: null,
@@ -35,6 +35,7 @@ function initial() {
     device: null,
     history: [],
     receipts: [],
+    pendingEntries: [],
   };
 }
 export class Store {
@@ -49,6 +50,7 @@ export class Store {
     this.state = existsSync(this.file)
       ? JSON.parse(readFileSync(this.file, "utf8"))
       : initial();
+    if (!Array.isArray(this.state.pendingEntries)) this.state.pendingEntries = [];
     assert(
       this.state.version === 1 &&
         Array.isArray(this.state.boxes) &&
@@ -104,6 +106,8 @@ export class Store {
   }
   register(body) {
     const value = uid(body.uid);
+    if (body.color !== undefined)
+      assert(["azul", "verde", "amarelo"].includes(body.color), "Cor inválida.");
     assert(
       UID_PATTERN.test(value),
       "UID inválido: use 4, 7 ou 10 bytes em hexadecimal.",
@@ -122,6 +126,7 @@ export class Store {
     );
     return this.commit(() => {
       b.uid = value;
+      if (body.color !== undefined) b.color = body.color;
       this.log("cadastro", `Tag cadastrada em ${b.id}.`, { boxId: b.id });
       return { ok: true };
     });
@@ -151,6 +156,7 @@ export class Store {
         409,
       );
     return this.commit(() => {
+      this.state.pendingEntries = this.state.pendingEntries.filter((entry) => entry.boxId !== b.id);
       this.state.command = {
         id: randomUUID(),
         action: body.action,
@@ -190,6 +196,7 @@ export class Store {
       );
     return this.commit(() => {
       b.slot = body.slot;
+      this.state.pendingEntries = this.state.pendingEntries.filter((entry) => entry.boxId !== b.id);
       this.state.command = null;
       this.log("ajuste", `Ajuste manual de ${b.id}: ${body.reason.trim()}`, {
         boxId: b.id,
@@ -203,6 +210,7 @@ export class Store {
     const t = body.telemetry;
     assert(t && typeof t === "object", "Telemetria ausente.");
     assert(typeof t.present === "boolean", "Presença inválida.");
+    assert(t.tagUid == null || UID_PATTERN.test(uid(t.tagUid)), "UID ativo inválido.");
     assert(
       t.distanceCm === null ||
         (Number.isFinite(t.distanceCm) &&
@@ -245,8 +253,10 @@ export class Store {
         lastSeen: this.now(),
         telemetry: {
           present: t.present,
+          tagUid: t.present && t.tagUid ? uid(t.tagUid) : null,
           distanceCm: t.distanceCm,
-          color: t.color,
+          color: t.colorCalibrated === true && pulses.every((v) => v > 0) ? t.color : "indefinida",
+          colorCalibrated: t.colorCalibrated === true,
           rssi: t.rssi,
           transport: t.transport === "usb" ? "usb" : "wifi",
           pulses,
@@ -265,13 +275,13 @@ export class Store {
           result = {
             accepted: false,
             code: "observed",
-            message: "Tag lida. Prepare uma operacao no painel.",
+            message: "Tag identificada no leitor.",
           };
           if (!b)
             result = {
               accepted: false,
               code: "unknown_tag",
-              message: "Tag nao cadastrada.",
+              message: "Tag lida. Vincule no painel.",
             };
           else if (scan.commandId && !c)
             result = {
@@ -290,12 +300,6 @@ export class Store {
               accepted: false,
               code: "wrong_box",
               message: "Tag de outra caixa.",
-            };
-          else if (c && !t.present)
-            result = {
-              accepted: false,
-              code: "not_present",
-              message: "Caixa fora da estacao.",
             };
           else if (c) {
             const valid =
@@ -320,6 +324,14 @@ export class Store {
               };
               this.state.command = null;
             }
+          } else if (b.slot) {
+            b.slot = null;
+            this.state.pendingEntries = this.state.pendingEntries.filter((entry) => entry.boxId !== b.id);
+            result = {accepted:true, code:"applied", message:`${b.id} retirada do estoque.`, boxId:b.id, slot:null};
+          } else {
+            if (!this.state.pendingEntries.some((entry) => entry.boxId === b.id))
+              this.state.pendingEntries.push({boxId:b.id, uid:value, due:this.now()+2000});
+            result.message = `${b.id} identificada. Guardando em 2 segundos.`;
           }
           this.state.lastScan = {
             at: this.now(),
@@ -335,6 +347,20 @@ export class Store {
           this.state.receipts.push({ id: scan.eventId, result });
           this.state.receipts = this.state.receipts.slice(-1000);
         }
+      }
+      // A leitura inicia a animação; os relatórios seguintes concluem a entrada.
+      // A vaga virtual não mede a posição física na estante.
+      const now = this.now();
+      if (!this.pending()) {
+        for (const entry of this.state.pendingEntries.filter((item) => item.due <= now)) {
+          const box = this.state.boxes.find((b) => b.id === entry.boxId && b.uid === entry.uid);
+          const free = SLOTS.find((slot) => !this.state.boxes.some((b) => b.slot === slot));
+          if (box && !box.slot && free) {
+            box.slot = free;
+            this.log("movimento", `${box.id} guardada automaticamente em ${free}.`, {boxId:box.id,slot:free,uid:entry.uid});
+          } else if (box && !box.slot && !free) this.log("leitura", `${box.id}: não há vaga livre.`, {boxId:box.id,uid:entry.uid});
+        }
+        this.state.pendingEntries = this.state.pendingEntries.filter((entry) => entry.due > now);
       }
       return {
         ok: true,

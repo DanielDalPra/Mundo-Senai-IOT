@@ -1,0 +1,119 @@
+{
+  "expected": "amarelo",
+  "white_reference_medians": {
+    "r": 225,
+    "g": 215,
+    "b": 169
+  },
+  "dominance_ratio": 1.1,
+  "samples": [
+    {
+      "r": 134,
+      "g": 169,
+      "b": 301,
+      "classified_with_proposed_calibration": "amarelo"
+    },
+    {
+      "r": 135,
+      "g": 170,
+      "b": 301,
+      "classified_with_proposed_calibration": "amarelo"
+    },
+    {
+      "r": 134,
+      "g": 169,
+      "b": 300,
+      "classified_with_proposed_calibration": "amarelo"
+    },
+    {
+      "r": 134,
+      "g": 168,
+      "b": 299,
+      "classified_with_proposed_calibration": "amarelo"
+    },
+    {
+      "r": 134,
+      "g": 169,
+      "b": 299,
+      "classified_with_proposed_calibration": "amarelo"
+    },
+    {
+      "r": 134,
+      "g": 169,
+      "b": 298,
+      "classified_with_proposed_calibration": "amarelo"
+    },
+    {
+      "r": 132,
+      "g": 165,
+      "b": 294,
+      "classified_with_proposed_calibration": "amarelo"
+    },
+    {
+      "r": 131,
+      "g": 164,
+      "b": 290,
+      "classified_with_proposed_calibration": "amarelo"
+    },
+    {
+      "r": 130,
+      "g": 164,
+      "b": 292,
+      "classified_with_proposed_calibration": "amarelo"
+    },
+    {
+      "r": 131,
+      "g": 165,
+      "b": 290,
+      "classified_with_proposed_calibration": "amarelo"
+    },
+    {
+      "r": 130,
+      "g": 163,
+      "b": 290,
+      "classified_with_proposed_calibration": "amarelo"
+    },
+    {
+      "r": 129,
+      "g": 164,
+      "b": 289,
+      "classified_with_proposed_calibration": "amarelo"
+    },
+    {
+      "r": 130,
+      "g": 162,
+      "b": 290,
+      "classified_with_proposed_calibration": "amarelo"
+    }
+  ],
+  "missing": [
+    {
+      "r": 0,
+      "g": 166,
+      "b": 0
+    }
+  ],
+  "summary": {
+    "r": {
+      "median": 132,
+      "min": 129,
+      "max": 135,
+      "cv": 0.015089035386281396
+    },
+    "g": {
+      "median": 165,
+      "min": 162,
+      "max": 170,
+      "cv": 0.016202814807970013
+    },
+    "b": {
+      "median": 294,
+      "min": 289,
+      "max": 301,
+      "cv": 0.01584370096602032
+    }
+  },
+  "counts": {
+    "amarelo": 13
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "expected": "verde",
+  "white_reference_medians": {
+    "r": 225,
+    "g": 215,
+    "b": 169
+  },
+  "dominance_ratio": 1.1,
+  "samples": [],
+  "missing": 32,
+  "summary": {},
+  "counts": {}
+}

@@ -1,0 +1,105 @@
+{
+  "reference": "papel branco fosco; operador confirmou posicao a 1-2 cm",
+  "date": "2026-11-03",
+  "port": "COM7",
+  "samples": [
+    {
+      "r": 361,
+      "g": 670,
+      "b": 456,
+      "classification_before_calibration": "vermelho"
+    },
+    {
+      "r": 356,
+      "g": 600,
+      "b": 410,
+      "classification_before_calibration": "vermelho"
+    },
+    {
+      "r": 516,
+      "g": 523,
+      "b": 372,
+      "classification_before_calibration": "indefinida"
+    },
+    {
+      "r": 578,
+      "g": 587,
+      "b": 408,
+      "classification_before_calibration": "indefinida"
+    },
+    {
+      "r": 518,
+      "g": 642,
+      "b": 345,
+      "classification_before_calibration": "indefinida"
+    },
+    {
+      "r": 499,
+      "g": 517,
+      "b": 326,
+      "classification_before_calibration": "indefinida"
+    },
+    {
+      "r": 532,
+      "g": 507,
+      "b": 321,
+      "classification_before_calibration": "azul"
+    },
+    {
+      "r": 499,
+      "g": 411,
+      "b": 332,
+      "classification_before_calibration": "indefinida"
+    },
+    {
+      "r": 636,
+      "g": 428,
+      "b": 337,
+      "classification_before_calibration": "indefinida"
+    },
+    {
+      "r": 566,
+      "g": 423,
+      "b": 332,
+      "classification_before_calibration": "indefinida"
+    },
+    {
+      "r": 583,
+      "g": 426,
+      "b": 335,
+      "classification_before_calibration": "indefinida"
+    },
+    {
+      "r": 515,
+      "g": 433,
+      "b": 295,
+      "classification_before_calibration": "indefinida"
+    },
+    {
+      "r": 485,
+      "g": 421,
+      "b": 339,
+      "classification_before_calibration": "indefinida"
+    }
+  ],
+  "summary": {
+    "r": {
+      "median": 516,
+      "min": 356,
+      "max": 636,
+      "cv": 0.1499430859180914
+    },
+    "g": {
+      "median": 507,
+      "min": 411,
+      "max": 670,
+      "cv": 0.17491424115507723
+    },
+    "b": {
+      "median": 337,
+      "min": 295,
+      "max": 456,
+      "cv": 0.12135675900803712
+    }
+  }
+}

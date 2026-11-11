@@ -30,15 +30,16 @@
           title="Modelo 3D do estoque registrado"
         ></iframe>
         <div class="model-caption">
-          A posição é registrada pela operação RFID. Movimentos físicos fora da
-          estação precisam ser reconciliados.
+          O estoque virtual é atualizado quando uma caixa permanece no leitor.
+          A posição física na estante precisa ser conferida pelo operador.
         </div>
         <div class="sensors">
-          <div><span>Estação</span><strong id="presence">—</strong></div>
-          <div><span>Distância</span><strong id="distance">—</strong></div>
-          <div><span>Cor observada</span><strong id="color">—</strong></div>
+          <div><span>Leitor RFID</span><strong id="presence">—</strong></div>
+          <div><span>Cor no sensor</span><strong id="color">—</strong></div>
           <div><span>Conexão</span><strong id="rssi">—</strong></div>
         </div>
+        <div class="current-box" aria-live="polite"><span>CAIXA NO LEITOR</span><strong id="current-box">Aproxime uma caixa</strong><small id="current-tag"></small></div>
+        <p class="model-caption">A caixa lida aparece na estação e, após cerca de 2 segundos, é guardada na primeira vaga virtual livre. Leia novamente para retirar.</p>
       </section>
       <aside>
         <nav aria-label="Painel">
@@ -49,8 +50,8 @@
         <section id="operate" class="tab">
           <h2>Movimentar uma caixa</h2>
           <p>
-            Prepare a operação. Espere aparecer no OLED e apresente a caixa na
-            estação.
+            Prepare a operação. Espere aparecer no OLED e aproxime a tag da caixa
+            do leitor. Se ela já estiver no leitor, afaste e apresente novamente.
           </p>
           <form id="operation-form">
             <label>Caixa<select id="operation-box"></select></label
@@ -100,8 +101,8 @@
         <section id="tags" class="tab" hidden>
           <h2>Cadastrar as etiquetas</h2>
           <p>
-            Com o ESP32 conectado, apresente uma caixa por vez na estação. Copie
-            a última tag lida e vincule à caixa correspondente.
+            Com o ESP32 conectado, aproxime uma tag por vez do leitor. Use a
+            última leitura e vincule à caixa correspondente.
           </p>
           <div class="scan">
             <span>ÚLTIMA TAG LIDA</span
@@ -122,7 +123,7 @@
           </form>
           <p class="help">
             O exemplo de UID não corresponde às suas tags. Cada caixa deve ter
-            uma tag diferente. Retire e reapresente a caixa entre leituras.
+            uma tag diferente. Afaste a tag por pelo menos 2 segundos entre leituras.
           </p>
           <div id="tag-list"></div>
         </section>

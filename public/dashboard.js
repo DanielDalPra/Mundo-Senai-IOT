@@ -65,7 +65,7 @@ function drawConnection() {
   $("connection").className =
     "status " + (connected && online ? "online" : "offline");
   if (!online || !connected)
-    for (const id of ["presence", "distance", "color", "rssi"])
+    for (const id of ["presence", "color", "rssi"])
       $(id).textContent = "—";
   return online;
 }
@@ -85,7 +85,7 @@ function updateOperation() {
     $("slot").value = available?.value || "";
   }
   let reason =
-    "Prepare a leitura e aguarde aparecer no OLED antes de aproximar a caixa.";
+    "Prepare a leitura e aguarde aparecer no OLED. Se a tag já estiver no leitor, afaste-a por 2 segundos e aproxime novamente.";
   let invalid = false;
   if (!connected) {
     reason = "Reconecte ao servidor para operar.";
@@ -122,11 +122,16 @@ function updateOperation() {
 }
 function syncModel() {
   const m = $("model").contentWindow?.maquete;
-  if (m && state)
+  if (m && state) {
+    const uid = state.deviceOnline && state.device?.telemetry?.present ? state.device.telemetry.tagUid : null;
+    const box = state.boxes.find((b) => uid && b.uid === uid);
     m.atualizarEstado({
       version: 1,
       boxes: state.boxes.map((b) => ({ id: b.id, slot: b.slot })),
+      readerBox: state.pendingEntries?.[0]?.boxId || null,
     });
+    if (box) m.selecionarCaixa(box.id);
+  }
 }
 function render(next) {
   state = next;
@@ -136,14 +141,14 @@ function render(next) {
     state.boxes.filter((b) => b.slot).length + " / 6 vagas";
   const t = state.device?.telemetry,
     online = state.deviceOnline;
-  $("presence").textContent = online
-    ? t.present
-      ? "Caixa presente"
-      : "Livre"
-    : "—";
-  $("distance").textContent =
-    online && t.distanceCm !== null ? t.distanceCm.toFixed(1) + " cm" : "—";
-  $("color").textContent = online ? t.color : "—";
+  const activeUid = online && t?.present ? t.tagUid : null;
+  const currentBox = state.boxes.find((b) => activeUid && b.uid === activeUid);
+  $("current-box").textContent = !online ? "ESP32 desconectada" : !activeUid ? "Aproxime uma caixa" : currentBox ? `${currentBox.id} · ${currentBox.color}` : "Tag não cadastrada";
+  $("current-tag").textContent = activeUid ? `Tag ${activeUid}` : "";
+  $("presence").textContent = !online ? "—" : !t.rfidOk
+    ? "Sem resposta" : t.present ? "Tag próxima" : "Aproxime a tag";
+  $("color").textContent = !online ? "—" : t.colorCalibrated !== true
+    ? "A calibrar" : t.pulses?.every((v) => v > 0) ? t.color : "Sem sinal";
   $("rssi").textContent = online ? t.transport === "usb" ? "USB" : t.rssi + " dBm" : "—";
   $("inventory").replaceChildren();
   $("tag-list").replaceChildren();
@@ -165,10 +170,13 @@ function render(next) {
     );
   }
   $("last-uid").textContent = state.lastScan?.uid || "Nenhuma leitura";
+  const scanMessage = state.lastScan?.result.code === "unknown_tag"
+    ? "Leitura OK · vincule esta tag a uma caixa abaixo."
+    : state.lastScan?.result.message;
   $("last-result").textContent = state.lastScan
     ? new Date(state.lastScan.at).toLocaleTimeString("pt-BR") +
       " · " +
-      state.lastScan.result.message
+      scanMessage
     : "Aproxime a etiqueta do RC522.";
   $("events").replaceChildren();
   for (const e of state.history) {
@@ -231,7 +239,7 @@ $("operation-form").onsubmit = async (e) => {
       action: $("action").value,
       slot: $("action").value === "saida" ? null : $("slot").value,
     });
-    say("Aguarde a operação aparecer no OLED. Depois apresente a caixa.");
+    say("Aguarde no OLED. Se a tag já estiver perto, afaste-a por 2 segundos antes de reapresentar.");
   } catch (e) {
     say(e.message);
   }
@@ -255,7 +263,7 @@ $("tag-form").onsubmit = async (e) => {
       boxId: $("tag-box").value,
       uid: $("tag-uid").value,
     });
-    say("Tag cadastrada. Retire a caixa antes da próxima leitura.");
+    say("Tag cadastrada. Afaste-a por 2 segundos antes da próxima leitura.");
     $("tag-uid").value = "";
   } catch (e) {
     say(e.message);

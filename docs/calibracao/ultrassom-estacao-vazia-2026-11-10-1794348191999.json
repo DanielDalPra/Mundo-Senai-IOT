@@ -1,0 +1,208 @@
+{
+  "reference": "operador confirmou estacao vazia, sem maos",
+  "date": "2026-11-10",
+  "samples": [
+    {
+      "at": 1794348167960,
+      "present": true,
+      "distanceCm": 11.69999981,
+      "color": "indefinida",
+      "colorCalibrated": true,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348169982,
+      "present": false,
+      "distanceCm": 12.10000038,
+      "color": "indefinida",
+      "colorCalibrated": true,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348171982,
+      "present": true,
+      "distanceCm": 0.5,
+      "color": "indefinida",
+      "colorCalibrated": true,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348173984,
+      "present": false,
+      "distanceCm": 12.19999981,
+      "color": "indefinida",
+      "colorCalibrated": true,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348175967,
+      "present": false,
+      "distanceCm": 11.69999981,
+      "color": "indefinida",
+      "colorCalibrated": true,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348177962,
+      "present": false,
+      "distanceCm": 12.19999981,
+      "color": "indefinida",
+      "colorCalibrated": true,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348179976,
+      "present": true,
+      "distanceCm": 11.69999981,
+      "color": "indefinida",
+      "colorCalibrated": true,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348181992,
+      "present": true,
+      "distanceCm": 11.60000038,
+      "color": "indefinida",
+      "colorCalibrated": true,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348183975,
+      "present": false,
+      "distanceCm": 11.89999962,
+      "color": "indefinida",
+      "colorCalibrated": true,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348185977,
+      "present": false,
+      "distanceCm": 11.89999962,
+      "color": "indefinida",
+      "colorCalibrated": true,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348187981,
+      "present": true,
+      "distanceCm": 11.69999981,
+      "color": "indefinida",
+      "colorCalibrated": true,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348191981,
+      "present": false,
+      "distanceCm": 11.89999962,
+      "color": "indefinida",
+      "colorCalibrated": true,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    }
+  ],
+  "summary": {
+    "samples": 12,
+    "valid": 12,
+    "noEcho": 0,
+    "min": 0.5,
+    "median": 11.89999962,
+    "max": 12.19999981,
+    "below2cm": 1,
+    "presenceCount": 5
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "reference": "branco; LEDs acesos; media central de 15 pulsos por filtro",
+  "samples": [
+    {
+      "r": 2440,
+      "g": 2931,
+      "b": 2356,
+      "classification": "vermelho"
+    },
+    {
+      "r": 2523,
+      "g": 2958,
+      "b": 2519,
+      "classification": "indefinida"
+    },
+    {
+      "r": 2374,
+      "g": 2793,
+      "b": 2422,
+      "classification": "indefinida"
+    },
+    {
+      "r": 2530,
+      "g": 2786,
+      "b": 2399,
+      "classification": "indefinida"
+    },
+    {
+      "r": 2484,
+      "g": 2731,
+      "b": 2369,
+      "classification": "indefinida"
+    },
+    {
+      "r": 2460,
+      "g": 2830,
+      "b": 2332,
+      "classification": "indefinida"
+    },
+    {
+      "r": 2616,
+      "g": 2770,
+      "b": 2465,
+      "classification": "indefinida"
+    },
+    {
+      "r": 2642,
+      "g": 2804,
+      "b": 2420,
+      "classification": "indefinida"
+    },
+    {
+      "r": 2299,
+      "g": 2729,
+      "b": 2336,
+      "classification": "indefinida"
+    },
+    {
+      "r": 2339,
+      "g": 2709,
+      "b": 2378,
+      "classification": "indefinida"
+    },
+    {
+      "r": 2304,
+      "g": 2747,
+      "b": 2341,
+      "classification": "indefinida"
+    },
+    {
+      "r": 2328,
+      "g": 2807,
+      "b": 2302,
+      "classification": "vermelho"
+    },
+    {
+      "r": 2391,
+      "g": 2816,
+      "b": 2350,
+      "classification": "indefinida"
+    }
+  ],
+  "summary": {
+    "r": {
+      "median": 2440,
+      "min": 2299,
+      "max": 2642,
+      "cv": 0.045021365068483185
+    },
+    "g": {
+      "median": 2793,
+      "min": 2709,
+      "max": 2958,
+      "cv": 0.02531865184148146
+    },
+    "b": {
+      "median": 2369,
+      "min": 2302,
+      "max": 2519,
+      "cv": 0.024275599241523088
+    }
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "expected": "amarelo",
+  "white_reference_medians": {
+    "r": 2440,
+    "g": 2793,
+    "b": 2369
+  },
+  "dominance_ratio": 1.1,
+  "samples": [
+    {
+      "r": 576,
+      "g": 783,
+      "b": 1287,
+      "classified_with_proposed_calibration": "amarelo"
+    },
+    {
+      "r": 573,
+      "g": 804,
+      "b": 1218,
+      "classified_with_proposed_calibration": "amarelo"
+    },
+    {
+      "r": 593,
+      "g": 797,
+      "b": 1242,
+      "classified_with_proposed_calibration": "amarelo"
+    },
+    {
+      "r": 553,
+      "g": 753,
+      "b": 1195,
+      "classified_with_proposed_calibration": "amarelo"
+    },
+    {
+      "r": 560,
+      "g": 762,
+      "b": 1216,
+      "classified_with_proposed_calibration": "amarelo"
+    },
+    {
+      "r": 591,
+      "g": 756,
+      "b": 1268,
+      "classified_with_proposed_calibration": "amarelo"
+    },
+    {
+      "r": 568,
+      "g": 750,
+      "b": 1207,
+      "classified_with_proposed_calibration": "amarelo"
+    },
+    {
+      "r": 568,
+      "g": 783,
+      "b": 1295,
+      "classified_with_proposed_calibration": "amarelo"
+    },
+    {
+      "r": 585,
+      "g": 723,
+      "b": 1201,
+      "classified_with_proposed_calibration": "amarelo"
+    },
+    {
+      "r": 606,
+      "g": 752,
+      "b": 1200,
+      "classified_with_proposed_calibration": "amarelo"
+    },
+    {
+      "r": 561,
+      "g": 772,
+      "b": 1221,
+      "classified_with_proposed_calibration": "amarelo"
+    },
+    {
+      "r": 543,
+      "g": 708,
+      "b": 1265,
+      "classified_with_proposed_calibration": "amarelo"
+    },
+    {
+      "r": 601,
+      "g": 734,
+      "b": 1203,
+      "classified_with_proposed_calibration": "amarelo"
+    }
+  ],
+  "summary": {
+    "r": {
+      "median": 573,
+      "min": 543,
+      "max": 606,
+      "cv": 0.03179408633691057
+    },
+    "g": {
+      "median": 756,
+      "min": 708,
+      "max": 804,
+      "cv": 0.03555830103103852
+    },
+    "b": {
+      "median": 1218,
+      "min": 1195,
+      "max": 1295,
+      "cv": 0.027450077979589378
+    }
+  },
+  "classifications_with_proposed_calibration": {
+    "amarelo": 13
+  }
+}

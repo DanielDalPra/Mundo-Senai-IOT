@@ -1,0 +1,112 @@
+{
+  "expected": "verde",
+  "white_reference_medians": {
+    "r": 2440,
+    "g": 2793,
+    "b": 2369
+  },
+  "samples": [
+    {
+      "r": 2620,
+      "g": 1907,
+      "b": 1986,
+      "classified_with_white_gains": "verde"
+    },
+    {
+      "r": 2520,
+      "g": 1966,
+      "b": 1868,
+      "classified_with_white_gains": "indefinida"
+    },
+    {
+      "r": 2586,
+      "g": 1878,
+      "b": 1901,
+      "classified_with_white_gains": "indefinida"
+    },
+    {
+      "r": 2547,
+      "g": 1953,
+      "b": 1923,
+      "classified_with_white_gains": "indefinida"
+    },
+    {
+      "r": 2661,
+      "g": 1965,
+      "b": 1927,
+      "classified_with_white_gains": "indefinida"
+    },
+    {
+      "r": 2605,
+      "g": 2000,
+      "b": 2005,
+      "classified_with_white_gains": "indefinida"
+    },
+    {
+      "r": 2547,
+      "g": 1999,
+      "b": 1987,
+      "classified_with_white_gains": "indefinida"
+    },
+    {
+      "r": 2622,
+      "g": 2055,
+      "b": 2011,
+      "classified_with_white_gains": "indefinida"
+    },
+    {
+      "r": 2540,
+      "g": 1982,
+      "b": 1940,
+      "classified_with_white_gains": "indefinida"
+    },
+    {
+      "r": 2590,
+      "g": 1914,
+      "b": 1939,
+      "classified_with_white_gains": "indefinida"
+    },
+    {
+      "r": 2503,
+      "g": 1928,
+      "b": 1909,
+      "classified_with_white_gains": "indefinida"
+    },
+    {
+      "r": 2550,
+      "g": 1949,
+      "b": 1949,
+      "classified_with_white_gains": "indefinida"
+    },
+    {
+      "r": 2631,
+      "g": 1934,
+      "b": 1880,
+      "classified_with_white_gains": "indefinida"
+    }
+  ],
+  "summary": {
+    "r": {
+      "median": 2586,
+      "min": 2503,
+      "max": 2661,
+      "cv": 0.01782640574280598
+    },
+    "g": {
+      "median": 1953,
+      "min": 1878,
+      "max": 2055,
+      "cv": 0.022869659713895107
+    },
+    "b": {
+      "median": 1939,
+      "min": 1868,
+      "max": 2011,
+      "cv": 0.022777983162195408
+    }
+  },
+  "classifications_with_proposed_gains": {
+    "verde": 1,
+    "indefinida": 12
+  }
+}

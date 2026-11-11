@@ -1,0 +1,19 @@
+ESTOQUE INTELIGENTE - WINDOWS 64 BITS
+
+1. Extraia TODO o ZIP para uma pasta. Nao execute os arquivos dentro do ZIP.
+2. Conecte a ESP32 por USB usando cabo de dados.
+3. Abra INICIAR.bat. Se houver apenas uma porta USB, aperte Enter. Se houver
+   mais de uma, digite a porta indicada para a ESP32 (por exemplo COM7).
+4. Deixe as duas janelas abertas e acesse http://localhost:3000.
+5. Para entrar, abra o arquivo .env e copie o valor ADMIN_TOKEN.
+
+O pacote ja inclui Node.js e Python portateis; nao precisa instala-los.
+As tags cadastradas e o estoque foram copiados do computador original.
+O arquivo .env contem as chaves desta maquete; mantenha o ZIP privado.
+As alteracoes realizadas neste PC ficam na pasta data; guarde uma copia dela
+se quiser levar o estoque atualizado para outro computador.
+
+Se a porta nao aparecer, verifique o cabo e o driver USB da placa CH9102.
+Se a porta estiver ocupada, feche monitores seriais e outros programas que a usem.
+O servidor e a ESP precisam estar no mesmo computador usando a ponte USB.
+Para sair, feche as janelas "Estoque - Servidor" e "Estoque - ESP32 USB".

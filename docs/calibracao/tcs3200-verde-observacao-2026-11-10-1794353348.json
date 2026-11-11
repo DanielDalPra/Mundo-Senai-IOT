@@ -1,0 +1,102 @@
+{
+  "expected": "verde; operador havia confirmado posicao",
+  "firmware": "ganhos 10/11 aplicados; teste de cor exclusivo",
+  "samples": [
+    {
+      "color": "sem sinal",
+      "r": 0,
+      "g": 0,
+      "b": 0
+    },
+    {
+      "color": "sem sinal",
+      "r": 0,
+      "g": 0,
+      "b": 0
+    },
+    {
+      "color": "sem sinal",
+      "r": 0,
+      "g": 0,
+      "b": 0
+    },
+    {
+      "color": "sem sinal",
+      "r": 0,
+      "g": 0,
+      "b": 0
+    },
+    {
+      "color": "sem sinal",
+      "r": 0,
+      "g": 0,
+      "b": 0
+    },
+    {
+      "color": "sem sinal",
+      "r": 0,
+      "g": 0,
+      "b": 0
+    },
+    {
+      "color": "sem sinal",
+      "r": 0,
+      "g": 0,
+      "b": 0
+    },
+    {
+      "color": "sem sinal",
+      "r": 0,
+      "g": 0,
+      "b": 0
+    },
+    {
+      "color": "sem sinal",
+      "r": 0,
+      "g": 0,
+      "b": 0
+    },
+    {
+      "color": "sem sinal",
+      "r": 0,
+      "g": 0,
+      "b": 0
+    },
+    {
+      "color": "sem sinal",
+      "r": 0,
+      "g": 0,
+      "b": 0
+    },
+    {
+      "color": "sem sinal",
+      "r": 0,
+      "g": 0,
+      "b": 0
+    },
+    {
+      "color": "sem sinal",
+      "r": 0,
+      "g": 0,
+      "b": 0
+    },
+    {
+      "color": "sem sinal",
+      "r": 0,
+      "g": 0,
+      "b": 0
+    }
+  ],
+  "counts": {
+    "sem sinal": 14
+  },
+  "recovery_messages": [
+    "Sensor de cor: retomada de sinal solicitada",
+    "Sensor de cor: retomada de sinal solicitada",
+    "Sensor de cor: retomada de sinal solicitada",
+    "Sensor de cor: retomada de sinal solicitada",
+    "Sensor de cor: retomada de sinal solicitada",
+    "Sensor de cor: retomada de sinal solicitada",
+    "Sensor de cor: retomada de sinal solicitada"
+  ]
+}

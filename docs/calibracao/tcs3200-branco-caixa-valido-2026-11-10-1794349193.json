@@ -1,0 +1,111 @@
+{
+  "date": "2026-11-10",
+  "reference": "operador confirmou papel branco fosco a 1-2 cm, quatro LEDs acesos, apos reconectar OUT",
+  "samples": [
+    {
+      "r": 226,
+      "g": 214,
+      "b": 169,
+      "classification_before_calibration": "indefinida"
+    },
+    {
+      "r": 225,
+      "g": 214,
+      "b": 169,
+      "classification_before_calibration": "indefinida"
+    },
+    {
+      "r": 225,
+      "g": 215,
+      "b": 168,
+      "classification_before_calibration": "indefinida"
+    },
+    {
+      "r": 225,
+      "g": 215,
+      "b": 169,
+      "classification_before_calibration": "indefinida"
+    },
+    {
+      "r": 226,
+      "g": 216,
+      "b": 169,
+      "classification_before_calibration": "indefinida"
+    },
+    {
+      "r": 226,
+      "g": 215,
+      "b": 169,
+      "classification_before_calibration": "indefinida"
+    },
+    {
+      "r": 224,
+      "g": 214,
+      "b": 168,
+      "classification_before_calibration": "indefinida"
+    },
+    {
+      "r": 225,
+      "g": 215,
+      "b": 169,
+      "classification_before_calibration": "indefinida"
+    },
+    {
+      "r": 225,
+      "g": 215,
+      "b": 169,
+      "classification_before_calibration": "indefinida"
+    },
+    {
+      "r": 225,
+      "g": 215,
+      "b": 168,
+      "classification_before_calibration": "indefinida"
+    },
+    {
+      "r": 225,
+      "g": 215,
+      "b": 169,
+      "classification_before_calibration": "indefinida"
+    },
+    {
+      "r": 225,
+      "g": 215,
+      "b": 169,
+      "classification_before_calibration": "indefinida"
+    },
+    {
+      "r": 225,
+      "g": 215,
+      "b": 168,
+      "classification_before_calibration": "indefinida"
+    }
+  ],
+  "missing": 0,
+  "summary": {
+    "r": {
+      "median": 225,
+      "min": 224,
+      "max": 226,
+      "cv": 0.0023669980287924523
+    },
+    "g": {
+      "median": 215,
+      "min": 214,
+      "max": 216,
+      "cv": 0.0024805596957663835
+    },
+    "b": {
+      "median": 169,
+      "min": 168,
+      "max": 169,
+      "cv": 0.002735978112175103
+    }
+  },
+  "stable_white_reference": true,
+  "normalized_gains": {
+    "r": 1.0,
+    "g": 0.9555555555555556,
+    "b": 0.7511111111111111
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "reference": "operador informou que verificou ligacoes; troca de jumper nao confirmada",
+  "lines": [
+    "COLOR_DIAG escala=100pct filtro=red S0=1 S1=1 S2=0 S3=0 OUT_inicial=0 low_us=0 high_us=0 mudancas_20ms=0 highs=0/21636",
+    "COLOR_DIAG escala=100pct filtro=green S0=1 S1=1 S2=1 S3=1 OUT_inicial=0 low_us=0 high_us=0 mudancas_20ms=0 highs=0/21635",
+    "COLOR_DIAG escala=100pct filtro=blue S0=1 S1=1 S2=0 S3=1 OUT_inicial=0 low_us=0 high_us=0 mudancas_20ms=0 highs=0/21636",
+    "COLOR_DIAG escala=2pct filtro=red S0=0 S1=1 S2=0 S3=0 OUT_inicial=0 low_us=0 high_us=0 mudancas_20ms=0 highs=0/21635",
+    "COLOR_DIAG escala=2pct filtro=green S0=0 S1=1 S2=1 S3=1 OUT_inicial=0 low_us=0 high_us=0 mudancas_20ms=0 highs=0/21636",
+    "COLOR_DIAG escala=2pct filtro=blue S0=0 S1=1 S2=0 S3=1 OUT_inicial=0 low_us=0 high_us=0 mudancas_20ms=0 highs=0/21635",
+    "COLOR_DIAG escala=20pct filtro=red S0=1 S1=0 S2=0 S3=0 OUT_inicial=0 low_us=0 high_us=0 mudancas_20ms=0 highs=0/21636",
+    "COLOR_DIAG escala=20pct filtro=green S0=1 S1=0 S2=1 S3=1 OUT_inicial=0 low_us=0 high_us=0 mudancas_20ms=0 highs=0/21636",
+    "COLOR_DIAG escala=20pct filtro=blue S0=1 S1=0 S2=0 S3=1 OUT_inicial=0 low_us=0 high_us=0 mudancas_20ms=0 highs=0/21636",
+    "COLOR_DIAG escala=100pct filtro=red S0=1 S1=1 S2=0 S3=0 OUT_inicial=0 low_us=0 high_us=0 mudancas_20ms=0 highs=0/21636",
+    "COLOR_DIAG escala=100pct filtro=green S0=1 S1=1 S2=1 S3=1 OUT_inicial=0 low_us=0 high_us=0 mudancas_20ms=0 highs=0/21636",
+    "COLOR_DIAG escala=100pct filtro=blue S0=1 S1=1 S2=0 S3=1 OUT_inicial=0 low_us=0 high_us=0 mudancas_20ms=0 highs=0/21635",
+    "COLOR_DIAG escala=2pct filtro=red S0=0 S1=1 S2=0 S3=0 OUT_inicial=0 low_us=0 high_us=0 mudancas_20ms=0 highs=0/21635",
+    "COLOR_DIAG escala=2pct filtro=green S0=0 S1=1 S2=1 S3=1 OUT_inicial=0 low_us=0 high_us=0 mudancas_20ms=0 highs=0/21636",
+    "COLOR_DIAG escala=2pct filtro=blue S0=0 S1=1 S2=0 S3=1 OUT_inicial=0 low_us=0 high_us=0 mudancas_20ms=0 highs=0/21636",
+    "COLOR_DIAG escala=20pct filtro=red S0=1 S1=0 S2=0 S3=0 OUT_inicial=0 low_us=0 high_us=0 mudancas_20ms=0 highs=0/21635",
+    "COLOR_DIAG escala=20pct filtro=green S0=1 S1=0 S2=1 S3=1 OUT_inicial=0 low_us=0 high_us=0 mudancas_20ms=0 highs=0/21635",
+    "COLOR_DIAG escala=20pct filtro=blue S0=1 S1=0 S2=0 S3=1 OUT_inicial=0 low_us=0 high_us=0 mudancas_20ms=0 highs=0/21636",
+    "COLOR_DIAG escala=100pct filtro=red S0=1 S1=1 S2=0 S3=0 OUT_inicial=0 low_us=0 high_us=0 mudancas_20ms=0 highs=0/21635",
+    "COLOR_DIAG escala=100pct filtro=green S0=1 S1=1 S2=1 S3=1 OUT_inicial=0 low_us=0 high_us=0 mudancas_20ms=0 highs=0/21636",
+    "COLOR_DIAG escala=100pct filtro=blue S0=1 S1=1 S2=0 S3=1 OUT_inicial=0 low_us=0 high_us=0 mudancas_20ms=0 highs=0/21635",
+    "COLOR_DIAG escala=2pct filtro=red S0=0 S1=1 S2=0 S3=0 OUT_inicial=0 low_us=0 high_us=0 mudancas_20ms=0 highs=0/21636",
+    "COLOR_DIAG escala=2pct filtro=green S0=0 S1=1 S2=1 S3=1 OUT_inicial=0 low_us=0 high_us=0 mudancas_20ms=0 highs=0/21635",
+    "COLOR_DIAG escala=2pct filtro=blue S0=0 S1=1 S2=0 S3=1 OUT_inicial=0 low_us=0 high_us=0 mudancas_20ms=0 highs=0/21636"
+  ]
+}

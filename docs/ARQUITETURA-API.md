@@ -3,7 +3,6 @@
 ```mermaid
 flowchart LR
   TAG[Tag dentro da caixa] --> RFID[RC522]
-  US[HC-SR04: estação] --> ESP[ESP32]
   COR[TCS3200: cor] --> ESP
   RFID --> ESP
   ESP --> OLED[OLED SPI]
@@ -17,17 +16,22 @@ flowchart LR
 
 ## Modelo de estoque
 
-Há seis caixas, cada uma com `id`, `color`, `uid` e `slot`. Uma caixa está em A1–A3, B1–B3 ou `null` (fora). IDs virtuais são CX-01 a CX-06. As cores vêm da maquete de referência: azul, verde, azul, amarelo, azul, verde. O UID é cadastrado pelo operador, não inventado pelo software.
+Há seis caixas, cada uma com `id`, `color`, `uid` e `slot`. Uma caixa está em A1–A3, B1–B3 ou `null` (fora). IDs virtuais são CX-01 a CX-06. A CX-02 foi identificada pelo grupo como amarela; as demais cores iniciais vêm da maquete de referência e podem precisar de conferência. O UID é cadastrado pelo operador, não inventado pelo software.
 
 A ocupação é derivada dessas posições. Não existe um contador separado que possa divergir. O servidor é a fonte do estado; o modelo conectado não aceita mudanças por arraste. A demonstração manual em `/demo.html` é independente.
 
 ## Transação física e digital
 
+Sem comando manual ativo, a leitura de uma tag cadastrada inicia uma entrada;
+após cerca de dois segundos a caixa é guardada na primeira vaga virtual livre.
+Uma nova leitura da caixa guardada registra a saída. Essa vaga não é detecção
+automática da posição física.
+
 1. Operador seleciona caixa, ação e vaga livre.
 2. Servidor cria um comando único, válido por 60 segundos.
 3. ESP32 recebe o comando na resposta do próximo relatório e mostra a operação no OLED.
-4. Presença estável na estação permite ler a tag. O firmware gera um `eventId` aleatório e guarda esse evento na NVS.
-5. Servidor confere comando, prazo, UID esperado, presença e disponibilidade da vaga; grava o estado e responde.
+4. O leitor RFID lê a tag apresentada. O firmware gera um `eventId` aleatório e guarda esse evento na NVS.
+5. Servidor confere comando, prazo, UID esperado e disponibilidade da vaga; grava o estado e responde.
 6. ESP32 remove o evento pendente somente após resposta válida. Navegadores recebem o estado por SSE.
 
 O registro não prova que alguém colocou a caixa na vaga indicada; essa etapa é física e manual. Não há localização automática por prateleira, motor ou atuador neste projeto.
@@ -66,7 +70,7 @@ Ações: `entrada`, `saida`, `mover`. Em saída, slot é `null`. O servidor não
   "deviceId": "esp32-maquete-01",
   "telemetry": {
     "present": true,
-    "distanceCm": 3.1,
+    "distanceCm": null,
     "color": "azul",
     "rssi": -52,
     "pulses": [120, 140, 80],
@@ -81,7 +85,7 @@ Ações: `entrada`, `saida`, `mover`. Em saída, slot é `null`. O servidor não
 }
 ```
 
-Os valores são exemplos. Sem leitura nova, omita `scan`. Sem eco, distância é `null`. Sem comando, `commandId` é `null`. `pulses` contém durações R/G/B em microssegundos, não frequências. Cor aceita `azul`, `verde`, `vermelho`, `amarelo`, `indefinida`.
+Os valores são exemplos. Sem leitura nova, omita `scan`. `present` indica uma tag recentemente detectada no leitor, e não ocupação de vaga; `distanceCm` é sempre `null`. Sem comando, `commandId` é `null`. `pulses` contém durações R/G/B em microssegundos, não frequências. Cor aceita `azul`, `verde`, `vermelho`, `amarelo`, `indefinida`.
 
 Resposta:
 
@@ -96,7 +100,7 @@ Resposta:
 
 `result` é `null` sem scan. Um comando contém `id`, `action`, `boxId`, `slot`, `createdAt` e `expiresAt`, em milissegundos Unix para os tempos. O firmware usa `expiresAt - serverTime` para calcular o prazo sem depender de relógio/NTP.
 
-Resultados de leitura incluem `applied`, `observed`, `unknown_tag`, `expired`, `stale_command`, `wrong_box`, `not_present` e `conflict`. Rejeições de negócio ainda recebem HTTP 200 com `accepted:false`, permitindo encerrar o evento sem repetição infinita. Falha de autenticação ou JSON inválido usa 4xx e `{"error":"..."}`.
+Resultados de leitura incluem `applied`, `observed`, `unknown_tag`, `expired`, `stale_command`, `wrong_box` e `conflict`. Rejeições de negócio ainda recebem HTTP 200 com `accepted:false`, permitindo encerrar o evento sem repetição infinita. Falha de autenticação ou JSON inválido usa 4xx e `{"error":"..."}`.
 
 ## Persistência e falhas
 

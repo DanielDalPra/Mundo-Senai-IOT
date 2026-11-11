@@ -15,6 +15,7 @@ const telemetry = {
   present: true,
   distanceCm: 3.2,
   color: "azul",
+  colorCalibrated: true,
   rssi: -48,
   pulses: [120, 140, 80],
   rfidOk: true,
@@ -46,6 +47,37 @@ test("tag não cadastrada é observada, sem mover caixa", (t) => {
   assert.equal(r.result.code, "unknown_tag");
   assert.equal(store.snapshot().lastScan.uid, "04A1B201");
   assert.equal(store.state.boxes[0].slot, null);
+});
+test("leitura guarda depois de dois segundos e nova leitura retira uma vez", (t) => {
+  const {store,advance}=fixture(t);register(store);
+  const send=(present=true,tagUid="04A1B201")=>store.report({deviceId:"esp32-maquete-01",telemetry:{...telemetry,present,tagUid}});
+  report(store,"autoscan1","04A1B201");advance(1999);send(false,null);assert.equal(store.state.boxes[0].slot,null);
+  advance(1);send();assert.equal(store.state.boxes[0].slot,"A1");
+  advance(2000);send();assert.equal(store.state.history.filter(h=>h.type==="movimento").length,1);
+  send(false,null);assert.equal(store.state.boxes[0].slot,"A1");
+  assert.equal(report(store,"autoexit1","04A1B201").result.code,"applied");assert.equal(store.state.boxes[0].slot,null);
+  assert.equal(report(store,"autoexit1","04A1B201").result.duplicate,true);advance(3000);send();assert.equal(store.state.boxes[0].slot,null);
+});
+test("tag desconhecida não guarda caixas", (t) => {
+  const {store,advance}=fixture(t);register(store);
+  const send=(present,tagUid)=>store.report({deviceId:"esp32-maquete-01",telemetry:{...telemetry,present,tagUid}});
+  report(store,"unknown02","04A1B202");advance(3000);send(true,"04A1B202");
+  assert.equal(store.state.boxes[0].slot,null);
+});
+
+test("cor só é exibida com calibração e sinal, sem depender de presença ou movimentar caixas", (t) => {
+  const { store } = fixture(t);
+  for (const extra of [{colorCalibrated:false}, {pulses:[0,0,0]}, {colorCalibrated:undefined}]) {
+    store.report({deviceId:"esp32-maquete-01",telemetry:{...telemetry,color:"vermelho",...extra}});
+    assert.equal(store.snapshot().device.telemetry.color,"indefinida");
+    assert.equal(store.snapshot().lastScan,null);
+    assert.ok(store.snapshot().boxes.every(b=>b.slot===null && b.uid===null));
+  }
+  store.report({deviceId:"esp32-maquete-01",telemetry:{...telemetry,present:false}});
+  assert.equal(store.snapshot().device.telemetry.color,"azul");
+  assert.ok(store.snapshot().boxes.every(b=>b.slot===null && b.uid===null));
+  store.report({deviceId:"esp32-maquete-01",telemetry});
+  assert.equal(store.snapshot().device.telemetry.color,"azul");
 });
 test("entrada, mudança de vaga e saída exigem tag da caixa esperada", (t) => {
   const { store } = fixture(t);
@@ -126,16 +158,16 @@ test("operação expirada, cancelada ou antiga não movimenta", (t) => {
   );
   assert.equal(store.state.boxes[0].slot, null);
 });
-test("UID conhecido sem operação e leitura sem presença não alteram estoque", (t) => {
+test("UID sem operação só observa; evento RFID pendente não depende da presença atual", (t) => {
   const { store } = fixture(t);
   register(store);
   assert.equal(report(store, "observe1", "04A1B201").result.code, "observed");
   const c = store.arm({ action: "entrada", boxId: "CX-01", slot: "A1" });
   assert.equal(
-    report(store, "absent01", "04A1B201", c.id, { present: false }).result.code,
-    "not_present",
+    report(store, "absent01", "04A1B201", c.id, { present: false, distanceCm:null }).result.code,
+    "applied",
   );
-  assert.equal(store.state.boxes[0].slot, null);
+  assert.equal(store.state.boxes[0].slot, "A1");
 });
 test("cor não identifica caixa e amarelo é aceito como telemetria", (t) => {
   const { store } = fixture(t);

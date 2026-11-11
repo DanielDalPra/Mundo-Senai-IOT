@@ -1,0 +1,51 @@
+{
+  "expected": "verde",
+  "firmware": "calibracao nova aplicada, ambiente esp32dev-color-test",
+  "samples": [
+    {
+      "color": "verde",
+      "r": 3439,
+      "g": 2550,
+      "b": 2703
+    },
+    {
+      "color": "verde",
+      "r": 3395,
+      "g": 2801,
+      "b": 2798
+    },
+    {
+      "color": "verde",
+      "r": 3370,
+      "g": 2635,
+      "b": 2731
+    },
+    {
+      "color": "verde",
+      "r": 3457,
+      "g": 2653,
+      "b": 2828
+    },
+    {
+      "color": "verde",
+      "r": 3386,
+      "g": 2829,
+      "b": 2761
+    },
+    {
+      "color": "verde",
+      "r": 3336,
+      "g": 2785,
+      "b": 2734
+    },
+    {
+      "color": "verde",
+      "r": 3326,
+      "g": 2652,
+      "b": 2660
+    }
+  ],
+  "counts": {
+    "verde": 7
+  }
+}

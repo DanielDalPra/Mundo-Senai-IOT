@@ -22,13 +22,13 @@ ESP32 + RFID + servidor local + maquete 3D. As tags dentro das seis caixas ident
 
 ## O que está pronto
 
-- Firmware para **ESP32 clássico WROOM/DevKit**, com RC522, HC-SR04, sensor de cor TCS3200 e OLED SPI.
+- Firmware para **ESP32 clássico WROOM/DevKit**, com RC522, sensor de cor TCS3200 e OLED SPI.
 - Servidor Node.js, sem dependências de produção, com persistência em disco e autenticação separada para painel e ESP32.
 - Cadastro das seis tags, operações confirmadas por RFID, histórico, correção manual auditada e estado enviado ao navegador por SSE.
 - Modelo 3D reconstruído das fotos, com modo conectado e demonstração manual independente.
 - Documentação de montagem, configuração, calibração, API e testes.
 
-**Limite do hardware:** um RC522 identifica uma tag próxima à sua antena. O HC-SR04 mede a presença na estação de leitura. Esses componentes não medem automaticamente as seis vagas. A vaga é escolhida pelo operador; o 3D mostra o estoque **registrado**, que deve ser conferido com a maquete. A cor é informação complementar, nunca a identidade da caixa.
+**Limite do hardware:** um RC522 identifica uma tag próxima à sua antena; não identifica automaticamente as seis vagas. A vaga é escolhida pelo operador; o 3D mostra o estoque **registrado**, que deve ser conferido com a maquete. A cor é informação complementar, nunca a identidade da caixa.
 
 ## Começar no computador
 
@@ -68,21 +68,21 @@ O OLED fotografado tem **seis pinos SPI**, sem RESET exposto. O projeto usa `OLE
 
 1. Comece com o cadastro vazio do sistema. O modelo conectado inicia com as seis caixas **fora** das vagas, pois as fotos não comprovam o estado físico atual.
 2. Aba **Tags**: apresente uma caixa na estação, clique em **Usar última leitura**, escolha CX-01 a CX-06 e vincule a tag.
-3. Retire a caixa por aproximadamente um segundo antes de apresentar a próxima. Repita para as seis tags.
+3. Retire a caixa por pelo menos dois segundos antes de apresentar a próxima. Repita para as seis tags.
 4. Aba **Operar**: selecione a caixa, a operação e a vaga. Clique em **Preparar leitura RFID**.
-5. Aguarde a operação aparecer no OLED, depois apresente a caixa na estação. A leitura da tag correta confirma o registro, atualiza o 3D e aparece no histórico.
+5. Aguarde a operação aparecer no OLED, afaste a tag por dois segundos se já estiver no leitor, e apresente a caixa na estação. A leitura da tag correta confirma o registro, atualiza o 3D e aparece no histórico.
 6. Posicione fisicamente a caixa na vaga escolhida, ou retire-a da maquete no caso de saída.
 
 Vagas A1–A3 = prateleira superior, da esquerda para a direita; B1–B3 = inferior. Uma operação expira em 60 segundos. A leitura de outra caixa, uma vaga ocupada e eventos repetidos não duplicam o movimento.
 
 ## Documentação
 
-- [MONTAGEM.md](docs/MONTAGEM.md): componentes, alimentação, tabela de fios, divisor e estação física.
+- [MONTAGEM.md](docs/MONTAGEM.md): componentes, alimentação, tabela de fios e estação física.
 - [INSTALACAO.md](docs/INSTALACAO.md): servidor, rede, gravação e primeiro uso.
-- [CALIBRACAO.md](docs/CALIBRACAO.md): distâncias, cores e diagnóstico.
+- [CALIBRACAO.md](docs/CALIBRACAO.md): cores e diagnóstico.
 - [ARQUITETURA-API.md](docs/ARQUITETURA-API.md): protocolo, persistência e integração do 3D.
 - [TESTES.md](docs/TESTES.md): validação de software e roteiro para a bancada.
-- [Manual imprimível](docs/Manual-de-montagem.pdf).
+- [Manual imprimível histórico](docs/Manual-de-montagem.pdf), anterior à retirada do ultrassônico; siga a montagem atual no arquivo acima.
 
 ## Testar sem hardware
 
@@ -118,6 +118,6 @@ data/         estado criado localmente (ignorado no Git)
 A validação de software está descrita em [TESTES.md](docs/TESTES.md). Em 01/11/2026,
 o firmware foi gravado no ESP32 físico e a comunicação USB com o servidor foi
 confirmada. O RFID real não respondeu e o ultrassônico retornou ausência de eco;
-os módulos e a montagem ainda precisam de conferência na bancada. Veja [USB.md](docs/USB.md).
+esse era o estado da bancada naquela data. O ultrassônico foi retirado do funcionamento; veja os registros mais recentes em [USB.md](docs/USB.md).
 
 O servidor foi pensado para uma rede local confiável durante o projeto. O protocolo padrão é HTTP; não exponha a porta diretamente à internet. `.env`, `config.h` e `data/` não são enviados ao Git. Faça backup de `data/state.json` com o servidor parado. Bibliotecas 3D mantêm sua licença em `public/vendor/LICENSE-THREE.txt`.

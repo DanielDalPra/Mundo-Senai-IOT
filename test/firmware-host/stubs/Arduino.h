@@ -27,6 +27,7 @@ public:
  String(unsigned int n,int base){char b[32];std::snprintf(b,sizeof(b),base==HEX?"%x":"%u",n);assign(b);}
  bool startsWith(const char* p)const{return compare(0,std::strlen(p),p)==0;}
  String substring(size_t n)const{return substr(n);}
+ String substring(size_t n,size_t end)const{return substr(n,end-n);}
  String toString()const{return *this;}
  void toUpperCase(){for(char &c:*this)c=std::toupper(static_cast<unsigned char>(c));}
  int read(){return cursor<size()?static_cast<unsigned char>((*this)[cursor++]):-1;}

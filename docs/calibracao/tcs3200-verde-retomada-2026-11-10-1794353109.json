@@ -1,0 +1,113 @@
+{
+  "expected": "verde",
+  "white_reference_medians": {
+    "r": 225,
+    "g": 215,
+    "b": 169
+  },
+  "dominance_ratio": 1.1,
+  "samples": [
+    {
+      "r": 1006,
+      "g": 599,
+      "b": 622,
+      "classified_with_proposed_calibration": "verde"
+    },
+    {
+      "r": 1004,
+      "g": 601,
+      "b": 623,
+      "classified_with_proposed_calibration": "verde"
+    },
+    {
+      "r": 1003,
+      "g": 599,
+      "b": 623,
+      "classified_with_proposed_calibration": "verde"
+    },
+    {
+      "r": 1004,
+      "g": 598,
+      "b": 621,
+      "classified_with_proposed_calibration": "verde"
+    },
+    {
+      "r": 1001,
+      "g": 595,
+      "b": 619,
+      "classified_with_proposed_calibration": "verde"
+    },
+    {
+      "r": 1000,
+      "g": 595,
+      "b": 621,
+      "classified_with_proposed_calibration": "verde"
+    },
+    {
+      "r": 1003,
+      "g": 598,
+      "b": 622,
+      "classified_with_proposed_calibration": "verde"
+    },
+    {
+      "r": 1008,
+      "g": 601,
+      "b": 624,
+      "classified_with_proposed_calibration": "verde"
+    },
+    {
+      "r": 1011,
+      "g": 603,
+      "b": 623,
+      "classified_with_proposed_calibration": "verde"
+    },
+    {
+      "r": 1007,
+      "g": 599,
+      "b": 622,
+      "classified_with_proposed_calibration": "verde"
+    },
+    {
+      "r": 997,
+      "g": 601,
+      "b": 624,
+      "classified_with_proposed_calibration": "verde"
+    },
+    {
+      "r": 981,
+      "g": 588,
+      "b": 614,
+      "classified_with_proposed_calibration": "verde"
+    },
+    {
+      "r": 1000,
+      "g": 591,
+      "b": 614,
+      "classified_with_proposed_calibration": "verde"
+    }
+  ],
+  "missing": [],
+  "summary": {
+    "r": {
+      "median": 1003,
+      "min": 981,
+      "max": 1011,
+      "cv": 0.007018971054519399
+    },
+    "g": {
+      "median": 599,
+      "min": 588,
+      "max": 603,
+      "cv": 0.006872475702903779
+    },
+    "b": {
+      "median": 622,
+      "min": 614,
+      "max": 624,
+      "cv": 0.00518840227734686
+    }
+  },
+  "counts": {
+    "verde": 13
+  }
+}

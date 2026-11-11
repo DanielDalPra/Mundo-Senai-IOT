@@ -9,16 +9,17 @@
 // 1 = relatorios via USB com `npm run usb`; 0 = HTTP pela rede Wi-Fi.
 #define TRANSPORT_SERIAL 1
 
-// Estação de leitura: ajuste após testar o posicionamento real.
-#define PRESENCE_ENTER_CM 4.0f
-#define PRESENCE_EXIT_CM 6.0f
 // OLED fotografado: SPI, 6 pinos, sem RESET exposto.
 #define OLED_RESET_PIN -1
 #define OLED_ENABLED true
 #define COLOR_ENABLED true
-// Branco medido nesta montagem em 02/11/2026: R=108 G=108 B=84 us.
+// Validada com branco, azul, verde e amarelo na caixa em 10/11/2026.
+#define COLOR_CALIBRATED true
+// Branco na caixa de apresentacao em 10/11: R=225 G=215 B=169 us.
 // Ganhos normalizados; recalibrar ao mudar sensor, distância ou iluminação.
 // Veja docs/TESTE-COR.md e docs/CALIBRACAO.md.
 #define COLOR_GAIN_R 1.0f
-#define COLOR_GAIN_G 1.0f
-#define COLOR_GAIN_B 0.777778f
+#define COLOR_GAIN_G 0.955555556f
+#define COLOR_GAIN_B 0.751111111f
+// Dominancia minima ajustada com as faces reais azul, verde e amarela.
+#define COLOR_DOMINANCE_RATIO 1.10f

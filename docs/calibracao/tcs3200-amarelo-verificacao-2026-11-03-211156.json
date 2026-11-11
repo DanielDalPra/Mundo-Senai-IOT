@@ -1,0 +1,51 @@
+{
+  "expected": "amarelo",
+  "firmware": "calibracao nova aplicada, ambiente esp32dev-color-test",
+  "samples": [
+    {
+      "color": "amarelo",
+      "r": 598,
+      "g": 770,
+      "b": 1261
+    },
+    {
+      "color": "amarelo",
+      "r": 545,
+      "g": 773,
+      "b": 1202
+    },
+    {
+      "color": "amarelo",
+      "r": 601,
+      "g": 793,
+      "b": 1268
+    },
+    {
+      "color": "amarelo",
+      "r": 562,
+      "g": 769,
+      "b": 1248
+    },
+    {
+      "color": "amarelo",
+      "r": 609,
+      "g": 764,
+      "b": 1274
+    },
+    {
+      "color": "amarelo",
+      "r": 732,
+      "g": 851,
+      "b": 1328
+    },
+    {
+      "color": "amarelo",
+      "r": 626,
+      "g": 850,
+      "b": 1437
+    }
+  ],
+  "counts": {
+    "amarelo": 7
+  }
+}

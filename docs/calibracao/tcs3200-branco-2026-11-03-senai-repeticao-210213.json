@@ -1,0 +1,103 @@
+{
+  "reference": "branco, quatro LEDs acesos confirmados pelo operador",
+  "samples": [
+    {
+      "r": 451,
+      "g": 804,
+      "b": 746,
+      "classification": "vermelho"
+    },
+    {
+      "r": 449,
+      "g": 391,
+      "b": 609,
+      "classification": "amarelo"
+    },
+    {
+      "r": 451,
+      "g": 399,
+      "b": 604,
+      "classification": "amarelo"
+    },
+    {
+      "r": 458,
+      "g": 414,
+      "b": 755,
+      "classification": "amarelo"
+    },
+    {
+      "r": 471,
+      "g": 492,
+      "b": 314,
+      "classification": "indefinida"
+    },
+    {
+      "r": 572,
+      "g": 474,
+      "b": 319,
+      "classification": "indefinida"
+    },
+    {
+      "r": 547,
+      "g": 457,
+      "b": 384,
+      "classification": "indefinida"
+    },
+    {
+      "r": 661,
+      "g": 621,
+      "b": 382,
+      "classification": "azul"
+    },
+    {
+      "r": 659,
+      "g": 480,
+      "b": 369,
+      "classification": "indefinida"
+    },
+    {
+      "r": 781,
+      "g": 674,
+      "b": 369,
+      "classification": "azul"
+    },
+    {
+      "r": 381,
+      "g": 840,
+      "b": 384,
+      "classification": "vermelho"
+    },
+    {
+      "r": 396,
+      "g": 861,
+      "b": 448,
+      "classification": "vermelho"
+    },
+    {
+      "r": 458,
+      "g": 861,
+      "b": 736,
+      "classification": "vermelho"
+    }
+  ],
+  "summary": {
+    "r": {
+      "median": 458,
+      "min": 381,
+      "max": 781,
+      "cv": 0.22076551489747923
+    },
+    "g": {
+      "median": 492,
+      "min": 391,
+      "max": 861,
+      "cv": 0.3016515150299056
+    },
+    "b": {
+      "median": 384,
+      "min": 314,
+      "max": 755,
+      "cv": 0.33166380681213586
+    }
+  }
+}

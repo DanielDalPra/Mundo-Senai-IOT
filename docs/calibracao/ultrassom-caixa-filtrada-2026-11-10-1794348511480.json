@@ -1,0 +1,117 @@
+{
+  "reference": "apos gravar filtro; operador havia confirmado caixa a ~3 cm antes da gravacao; posicao atual aguarda reconfirmacao",
+  "samples": [
+    {
+      "at": 1794348497898,
+      "present": false,
+      "distanceCm": null,
+      "color": "indefinida",
+      "colorCalibrated": false,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348499891,
+      "present": false,
+      "distanceCm": 11.5,
+      "color": "indefinida",
+      "colorCalibrated": false,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348501911,
+      "present": false,
+      "distanceCm": null,
+      "color": "indefinida",
+      "colorCalibrated": false,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348503914,
+      "present": false,
+      "distanceCm": null,
+      "color": "indefinida",
+      "colorCalibrated": false,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348505907,
+      "present": false,
+      "distanceCm": 11.5,
+      "color": "indefinida",
+      "colorCalibrated": false,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348507903,
+      "present": false,
+      "distanceCm": null,
+      "color": "indefinida",
+      "colorCalibrated": false,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348509904,
+      "present": true,
+      "distanceCm": 3.900000095,
+      "color": "indefinida",
+      "colorCalibrated": false,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    }
+  ]
+}

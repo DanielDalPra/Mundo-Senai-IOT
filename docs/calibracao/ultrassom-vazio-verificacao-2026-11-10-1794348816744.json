@@ -1,0 +1,122 @@
+{
+  "reference": "operador confirmou estacao vazia apos filtro final",
+  "samples": [
+    {
+      "at": 1794348803447,
+      "present": false,
+      "distanceCm": null,
+      "color": "indefinida",
+      "colorCalibrated": false,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348805469,
+      "present": false,
+      "distanceCm": 11.69999981,
+      "color": "indefinida",
+      "colorCalibrated": false,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348807477,
+      "present": false,
+      "distanceCm": 11.69999981,
+      "color": "indefinida",
+      "colorCalibrated": false,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348809462,
+      "present": false,
+      "distanceCm": null,
+      "color": "indefinida",
+      "colorCalibrated": false,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348811466,
+      "present": false,
+      "distanceCm": 11.89999962,
+      "color": "indefinida",
+      "colorCalibrated": false,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348813474,
+      "present": false,
+      "distanceCm": 11.60000038,
+      "color": "indefinida",
+      "colorCalibrated": false,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    },
+    {
+      "at": 1794348815453,
+      "present": false,
+      "distanceCm": 11.80000019,
+      "color": "indefinida",
+      "colorCalibrated": false,
+      "rssi": 0,
+      "transport": "usb",
+      "pulses": [
+        0,
+        0,
+        0
+      ],
+      "rfidOk": true,
+      "oledOk": true
+    }
+  ],
+  "summary": {
+    "samples": 7,
+    "presenceCount": 0,
+    "missing": 2
+  }
+}

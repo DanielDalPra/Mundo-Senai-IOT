@@ -124,7 +124,7 @@ iframe {
   padding: 18px 0;
   border-top: 1px solid #dce4ee;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }
 .sensors span {
@@ -136,6 +136,10 @@ iframe {
 .sensors strong {
   font-size: 14px;
 }
+.current-box { margin: 0 25px; padding: 14px 16px; border-radius: 10px; background: #eaf1fb; display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
+.current-box span { color: #597394; font-size: 10px; font-weight: 700; letter-spacing: 1px; }
+.current-box strong { color: #24476d; font-size: 16px; }
+.current-box small { color: #597394; }
 aside {
   background: #fff;
   border-left: 1px solid #dce4ee;
@@ -409,7 +413,7 @@ summary {
     min-height: 300px;
   }
   .sensors {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     margin-bottom: 5px;
     padding: 12px 0;
   }

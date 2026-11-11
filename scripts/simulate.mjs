@@ -25,8 +25,9 @@ async function send(scan = null) {
       deviceId: process.env.DEVICE_ID || "esp32-maquete-01",
       telemetry: {
         present: !!tag,
-        distanceCm: tag ? 3.1 : 22,
+        distanceCm: null,
         color: tag ? "azul" : "indefinida",
+        colorCalibrated: true,
         rssi: -40,
         pulses: [120, 140, 80],
         rfidOk: true,

@@ -1,0 +1,56 @@
+{
+  "expected": "verde",
+  "firmware": "ganhos 10/11 aplicados; teste de cor exclusivo",
+  "samples": [
+    {
+      "color": "sem sinal",
+      "r": 0,
+      "g": 0,
+      "b": 0
+    },
+    {
+      "color": "verde",
+      "r": 866,
+      "g": 501,
+      "b": 518
+    },
+    {
+      "color": "verde",
+      "r": 837,
+      "g": 502,
+      "b": 520
+    },
+    {
+      "color": "sem sinal",
+      "r": 0,
+      "g": 0,
+      "b": 0
+    },
+    {
+      "color": "sem sinal",
+      "r": 0,
+      "g": 0,
+      "b": 0
+    },
+    {
+      "color": "sem sinal",
+      "r": 0,
+      "g": 0,
+      "b": 0
+    },
+    {
+      "color": "sem sinal",
+      "r": 0,
+      "g": 0,
+      "b": 0
+    }
+  ],
+  "counts": {
+    "sem sinal": 5,
+    "verde": 2
+  },
+  "recovery_messages": [
+    "Sensor de cor: retomada de sinal solicitada",
+    "Sensor de cor: retomada de sinal solicitada"
+  ]
+}

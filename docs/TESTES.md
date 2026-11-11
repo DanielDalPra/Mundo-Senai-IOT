@@ -1,5 +1,11 @@
 # Validação e teste de bancada
 
+## Atualização — funcionamento sem ultrassônico
+
+O programa principal usa somente RFID e sensor de cor. Os testes automatizados
+incluem entrada, movimentação, saída, retirada e reapresentação de tag, repetição
+de eventos e recuperação após reinício. As seções datadas abaixo são históricas.
+
 ## Atualização — 02/11/2026
 
 `npm run validate` aprovou **45 testes/casos**, incluindo o novo `color-bench`:
@@ -87,10 +93,10 @@ Não houve acesso USB ao ESP32 do grupo, gravação da placa, medição elétric
 
 | Teste | Resultado esperado |
 |---|---|
-| Conferir circuito desligado | Nenhum curto, GND comum, 3V3 separado de 5 V, divisor no ECHO |
+| Conferir circuito desligado | Nenhum curto, GND comum e alimentação correta |
 | Iniciar somente placa e servidor | Wi-Fi e comunicação sem reinícios |
 | Conferir RC522 | Registrador responde; cada uma das seis tags tem UID diferente |
-| Testar presença dez vezes | Caixa reconhecida e liberação após retirada, sem disparos com estação vazia |
+| Testar RFID dez vezes | Tag reconhecida; afastar por dois segundos permite nova leitura |
 | Cadastrar cada caixa | Uma tag por caixa e duplicatas rejeitadas |
 | Entrada na A1 | Tag correta atualiza histórico e 3D; caixa é colocada fisicamente em A1 |
 | Tag errada | Nenhuma posição muda; operador recebe aviso |

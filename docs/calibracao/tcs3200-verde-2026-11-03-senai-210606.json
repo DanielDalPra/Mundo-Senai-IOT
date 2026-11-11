@@ -1,0 +1,111 @@
+{
+  "expected": "verde",
+  "white_reference_medians": {
+    "r": 2440,
+    "g": 2793,
+    "b": 2369
+  },
+  "samples": [
+    {
+      "r": 5573,
+      "g": 4071,
+      "b": 2210,
+      "classified_with_white_gains": "azul"
+    },
+    {
+      "r": 5376,
+      "g": 3608,
+      "b": 2238,
+      "classified_with_white_gains": "azul"
+    },
+    {
+      "r": 5430,
+      "g": 3834,
+      "b": 2400,
+      "classified_with_white_gains": "azul"
+    },
+    {
+      "r": 5562,
+      "g": 4238,
+      "b": 2400,
+      "classified_with_white_gains": "azul"
+    },
+    {
+      "r": 5877,
+      "g": 4104,
+      "b": 2286,
+      "classified_with_white_gains": "azul"
+    },
+    {
+      "r": 5562,
+      "g": 4713,
+      "b": 2859,
+      "classified_with_white_gains": "azul"
+    },
+    {
+      "r": 2258,
+      "g": 1546,
+      "b": 778,
+      "classified_with_white_gains": "azul"
+    },
+    {
+      "r": 2364,
+      "g": 1463,
+      "b": 777,
+      "classified_with_white_gains": "azul"
+    },
+    {
+      "r": 1983,
+      "g": 1455,
+      "b": 748,
+      "classified_with_white_gains": "azul"
+    },
+    {
+      "r": 2102,
+      "g": 1456,
+      "b": 745,
+      "classified_with_white_gains": "azul"
+    },
+    {
+      "r": 1966,
+      "g": 1399,
+      "b": 754,
+      "classified_with_white_gains": "azul"
+    },
+    {
+      "r": 2072,
+      "g": 1490,
+      "b": 761,
+      "classified_with_white_gains": "azul"
+    },
+    {
+      "r": 1956,
+      "g": 1449,
+      "b": 737,
+      "classified_with_white_gains": "azul"
+    }
+  ],
+  "summary": {
+    "r": {
+      "median": 2364,
+      "min": 1956,
+      "max": 5877,
+      "cv": 0.46859506553502095
+    },
+    "g": {
+      "median": 1546,
+      "min": 1399,
+      "max": 4713,
+      "cv": 0.4970999292840323
+    },
+    "b": {
+      "median": 778,
+      "min": 737,
+      "max": 2859,
+      "cv": 0.5491083579416942
+    }
+  },
+  "classifications_with_proposed_gains": {
+    "azul": 13
+  }
+}

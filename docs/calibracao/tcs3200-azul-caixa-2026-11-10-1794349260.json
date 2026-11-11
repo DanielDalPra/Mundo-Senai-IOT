@@ -1,0 +1,113 @@
+{
+  "expected": "azul",
+  "white_reference_medians": {
+    "r": 225,
+    "g": 215,
+    "b": 169
+  },
+  "dominance_ratio": 1.1,
+  "samples": [
+    {
+      "r": 1474,
+      "g": 897,
+      "b": 437,
+      "classified_with_proposed_calibration": "azul"
+    },
+    {
+      "r": 1357,
+      "g": 833,
+      "b": 407,
+      "classified_with_proposed_calibration": "azul"
+    },
+    {
+      "r": 1478,
+      "g": 896,
+      "b": 437,
+      "classified_with_proposed_calibration": "azul"
+    },
+    {
+      "r": 1471,
+      "g": 893,
+      "b": 435,
+      "classified_with_proposed_calibration": "azul"
+    },
+    {
+      "r": 1471,
+      "g": 896,
+      "b": 439,
+      "classified_with_proposed_calibration": "azul"
+    },
+    {
+      "r": 1492,
+      "g": 907,
+      "b": 443,
+      "classified_with_proposed_calibration": "azul"
+    },
+    {
+      "r": 1538,
+      "g": 931,
+      "b": 457,
+      "classified_with_proposed_calibration": "azul"
+    },
+    {
+      "r": 1553,
+      "g": 945,
+      "b": 462,
+      "classified_with_proposed_calibration": "azul"
+    },
+    {
+      "r": 1568,
+      "g": 945,
+      "b": 463,
+      "classified_with_proposed_calibration": "azul"
+    },
+    {
+      "r": 1541,
+      "g": 943,
+      "b": 462,
+      "classified_with_proposed_calibration": "azul"
+    },
+    {
+      "r": 1555,
+      "g": 946,
+      "b": 462,
+      "classified_with_proposed_calibration": "azul"
+    },
+    {
+      "r": 1516,
+      "g": 919,
+      "b": 447,
+      "classified_with_proposed_calibration": "azul"
+    },
+    {
+      "r": 1533,
+      "g": 933,
+      "b": 456,
+      "classified_with_proposed_calibration": "azul"
+    }
+  ],
+  "missing": 0,
+  "summary": {
+    "r": {
+      "median": 1516,
+      "min": 1357,
+      "max": 1568,
+      "cv": 0.03601045168979881
+    },
+    "g": {
+      "median": 919,
+      "min": 833,
+      "max": 946,
+      "cv": 0.03385231255680599
+    },
+    "b": {
+      "median": 447,
+      "min": 407,
+      "max": 463,
+      "cv": 0.03476343139230733
+    }
+  },
+  "counts": {
+    "azul": 13
+  }
+}

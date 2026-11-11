@@ -1,0 +1,52 @@
+{
+  "expected": "amarelo",
+  "firmware": "ganhos 10/11 aplicados; teste de cor exclusivo",
+  "samples": [
+    {
+      "color": "amarelo",
+      "r": 120,
+      "g": 152,
+      "b": 266
+    },
+    {
+      "color": "amarelo",
+      "r": 120,
+      "g": 150,
+      "b": 265
+    },
+    {
+      "color": "amarelo",
+      "r": 119,
+      "g": 150,
+      "b": 264
+    },
+    {
+      "color": "amarelo",
+      "r": 121,
+      "g": 153,
+      "b": 268
+    },
+    {
+      "color": "amarelo",
+      "r": 122,
+      "g": 153,
+      "b": 268
+    },
+    {
+      "color": "amarelo",
+      "r": 122,
+      "g": 152,
+      "b": 269
+    },
+    {
+      "color": "amarelo",
+      "r": 121,
+      "g": 152,
+      "b": 266
+    }
+  ],
+  "counts": {
+    "amarelo": 7
+  },
+  "recovery_messages": []
+}

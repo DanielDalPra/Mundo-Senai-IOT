@@ -6,10 +6,10 @@
   const colorNames = { azul: "Azul", verde: "Verde", amarelo: "Amarela" };
   const definitions = [
     ["CX-01", "azul", "A1"],
-    ["CX-02", "verde", "A2"],
-    ["CX-03", "azul", "A3"],
-    ["CX-04", "amarelo", "B1"],
-    ["CX-05", "azul", "B2"],
+    ["CX-02", "amarelo", "A2"],
+    ["CX-03", "verde", "A3"],
+    ["CX-04", "azul", "B1"],
+    ["CX-05", "verde", "B2"],
     ["CX-06", "verde", "B3"],
   ];
   const slots = ["A1", "A2", "A3", "B1", "B2", "B3"].map((id, i) => ({
@@ -29,6 +29,8 @@
     cameraTween = null;
   const motions = [];
   const boxData = [];
+  let readerBox = null;
+  const readerPosition = new THREE.Vector3(0, 5.1, 40);
   const storageKey = "senai-estoque-maquete-v1";
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 1200);
@@ -483,12 +485,11 @@
         taken.add(b.slot);
       }
     }
+    readerBox = live && definitions.some((d) => d[0] === value.readerBox) ? value.readerBox : null;
     for (const b of boxData) {
       b.slot = value.boxes.find((x) => x.id === b.id).slot;
       b.group.userData.slotId = b.slot;
-      b.group.position.copy(
-        b.slot ? slotById[b.slot].position : parkedPosition(b.index),
-      );
+      if (!live) b.group.position.copy(b.slot ? slotById[b.slot].position : parkedPosition(b.index));
     }
     return true;
   }
@@ -915,6 +916,10 @@
   renderUI();
   function frame(now) {
     requestAnimationFrame(frame);
+    if (live) for (const b of boxData) {
+      const target = b.id === readerBox ? readerPosition : b.slot ? slotById[b.slot].position : parkedPosition(b.index);
+      b.group.position.lerp(target, 0.09);
+    }
     if (cameraTween) {
       const t = Math.min(1, (now - cameraTween.start) / 650),
         ease = t * t * (3 - 2 * t);

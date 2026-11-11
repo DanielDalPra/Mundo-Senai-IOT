@@ -1,0 +1,48 @@
+{
+  "reference": "operador confirmou papel branco a 1-2 cm e quatro LEDs acesos; teste exclusivo de cor",
+  "samples": [
+    {
+      "reported": "sem sinal",
+      "r": 0,
+      "g": 0,
+      "b": 0
+    },
+    {
+      "reported": "sem sinal",
+      "r": 0,
+      "g": 0,
+      "b": 0
+    },
+    {
+      "reported": "sem sinal",
+      "r": 0,
+      "g": 0,
+      "b": 0
+    },
+    {
+      "reported": "sem sinal",
+      "r": 0,
+      "g": 0,
+      "b": 0
+    },
+    {
+      "reported": "sem sinal",
+      "r": 0,
+      "g": 0,
+      "b": 0
+    },
+    {
+      "reported": "sem sinal",
+      "r": 0,
+      "g": 0,
+      "b": 0
+    },
+    {
+      "reported": "sem sinal",
+      "r": 0,
+      "g": 0,
+      "b": 0
+    }
+  ],
+  "nonzero_samples": 0
+}
